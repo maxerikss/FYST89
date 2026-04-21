@@ -1,0 +1,407 @@
+\section{Theory of Angular Momentum}
+\subsection{Rotation and Angular Momentum Commutation Relations}
+
+\subsubsection{Finite Versus Infinitesimal Rotations}
+It is trivial that a 30-degree rotation about an axis followed by a 60-degree rotation about the same axis is equivalent to starting with 60- and ending with 30-degrees of rotation, thus rotations about the same axis commute. The same is not true for different axes of rotation, i.e. a \qty{90}{\degree} rotation about the $x$-axis followed by a \qty{90}{\degree} rotation about the $y$-axis is not equivalent to the reverse. The rotation of a vector $\vec{V}$, can be described by the orthogonal matrix $R_n(\phi)$ such that a $\phi$ rotation about the axis $n$ is given by
+\begin{equation}
+    \vec{V}' = R_n(\phi) \vec{V}.
+\end{equation}
+The orthogonality of $R_n(\phi)$ implies that $R_n^{-1} = R_n^T$ and 
+\begin{equation}
+    \sqrt{V_x^2 + V_y^2 + V_z^2} = \sqrt{V_x'^2 + V_y'^2 + V_z'^2}.
+\end{equation}
+The convention used in these notes as well as the literature is that the coordinate system is static while the physical system rotates (active rotation), and positive rotation is defined as counterclockwise, i.e. the right-hand rule applies. For a rotation about the $z$-axis, it can be shown that
+\begin{equation}
+    R_z(\phi) = 
+        \begin{pmatrix}
+            \cos\phi & -\sin\phi & 0 \\
+            \sin\phi & \cos\phi & 0 \\
+            0 & 0 & 1
+        \end{pmatrix}
+\end{equation}
+If we want tot look at an infinitesimal rotation $\phi = \epsilon$, where $\epsilon^3 = 0$, we can perform a Taylor expansion of the rotation matrix yielding
+\begin{align}
+    R_z(\epsilon) &= 
+        \begin{pmatrix}
+            1 - \dfrac{\epsilon^2}{2}    & -\epsilon                 & 0 \\
+            \epsilon                    & 1 - \dfrac{\epsilon^2}{2}  & 0 \\
+            0                           & 0                         & 1
+        \end{pmatrix}\\
+    R_x(\epsilon) &= 
+        \begin{pmatrix}
+            1 & 0                           & 0 \\
+            0 & 1 - \dfrac{\epsilon^2}{2}    & -\epsilon \\
+            0 & \epsilon                    & 1 - \dfrac{\epsilon^2}{2}      
+        \end{pmatrix}\\
+    R_y(\epsilon) &=
+        \begin{pmatrix}
+            1 - \dfrac{\epsilon^2}{2}    & 0 & \epsilon \\
+            0                           & 1 & 0 \\
+            -\epsilon                   & 0 & 1 - \dfrac{\epsilon^2}{2}      
+        \end{pmatrix}.
+\end{align}
+By performing two successive infinitesimal rotation about the $x$- and $y$-axis, we find that
+\begin{align}
+    R_x(\epsilon) R_y(\epsilon) &=
+        \begin{pmatrix}
+            1 - \dfrac{\epsilon^2}{2}    & 0 & \epsilon \\
+            \epsilon^2                    & 1 - \dfrac{\epsilon^2}{2}    & -\epsilon \\
+            -\epsilon                   & \epsilon                    & 1 - \dfrac{\epsilon^2}{2}      
+        \end{pmatrix}\\
+    R_y(\epsilon) R_x(\epsilon) &=
+        \begin{pmatrix}
+            1 - \dfrac{\epsilon^2}{2}    & 0 & \epsilon \\
+            -\epsilon^2                   & 1 - \dfrac{\epsilon^2}{2}    & -\epsilon \\
+            -\epsilon                   & \epsilon                    & 1 - \dfrac{\epsilon^2}{2}      
+        \end{pmatrix},
+\end{align}
+which shows that the commutation relation
+\begin{equation}
+    \comm{R_x(\epsilon)}{R_y(\epsilon)} = 
+        \begin{pmatrix}
+            0 & -\epsilon^2 & 0\\
+            \epsilon^2 & 0 & 0\\
+            0 & 0 & 0
+        \end{pmatrix}
+        = R_z(\epsilon^2) - 1 = R_z(\epsilon^2) - R_n(0),
+\end{equation}
+notably we find that the rotation commute if we ignore terms of order $\epsilon^2$ and higher.
+
+\subsubsection{Infinitesimal Rotations in Quantum Mechanics}
+The previous subsection did not involve quantum mechanical concepts, which we will introduce now. Since a rotation is active, we change the system, and thus the state ket after a rotation should be different from the original one. For a rotation characterized by the matrix $R$, we introduce the operator $\mathscr{D}(R)$ such that 
+\begin{equation}
+    \ket{\alpha}_R = \mathscr{D}(R) \ket{\alpha}.
+\end{equation}
+Note that the matrix representation of $\mathscr{D}(R)$ is not the same as $R$, but is instead dependent on the dimensionality of the ket-space of the system, i.e. for a spin $\frac{1}{2}$ system we have a $2\times 2$ matrix while for a spin 1 system we have a $3\times 3$ matrix representation of $\mathscr{D}(R)$.
+
+To construct this operator we start in the same way as for the construction of a translation and time evolution operator by looking at an infinitesimal rotation
+\begin{equation}
+    U_\epsilon = 1 - i G \epsilon,
+\end{equation}
+where $G$ is a generator of the rotation. From classical mechanics we know that the generator of rotation is angular momentum, and we thus have
+\begin{equation}
+    G \to \frac{\vec{J}\cdot \hat{\vec{n}}}{\hbar}, \quad \epsilon \to d\phi,
+\end{equation}
+where $\hat{\vec{n}}$ is the axis of rotation, and we rotate around this axis by an angle $d\phi$, and we note that the angular momentum operator $\vec{J}$ is defined by this expression. Taking $\vec{J}$ to be Hermitian we guarantee $\mathscr{D}(R)$ to be unitary. We can thus write the operator for an infinitesimal rotation as 
+\begin{equation}
+    \mathscr{D}(\hat{\vec{n}}, d\phi) = 1 - \frac{i}{\hbar} \vec{J} \cdot \hat{\vec{n}} d\phi.\label{eq:infinitesimalRotation}
+\end{equation}
+Note that this formalism is applicable for any type of angular momentum, and we therefore do not take $\vec{J}$ to be defined by $\vec{x} \times \vec{p}$ as in classical mechanics, but instead let $J$ be defined such that the above expression is true for an infinitesimal rotation.
+
+\subsubsection{Finite Rotations in Quantum Mechanics}
+If we want to consider a finite rotation we perform $N$ successive infinitesimal rotations of the form in Eq. \eqref{eq:infinitesimalRotation}. For a rotation about the $z$-axis we have 
+\begin{align}
+    \mathscr{D}(\hat{\vec{z}}, \phi) &= \lim_{N\to\infty} \ab [ 1 -\frac{i}{\hbar} J_z \frac{\phi}{N} ]^N\\
+    &= 1 - \frac{i J_z \phi}{\hbar} + \frac{J_z^2 \phi^2}{2\hbar^2} + \cdots \\
+    &= \exp\ab(-\frac{i J_z \phi}{\hbar}).
+\end{align}
+We postulate that $\mathscr{D}$ has the same group properties as $R$, which are
+\begin{subequations}\begin{align}
+    \text{Identity:}&&  R\cdot 1 = R &\implies \mathscr{D}(R) \cdot 1 = \mathscr{D}(R)\\
+    \text{Closure:}&&  R_1R_2 = R_3 &\implies \mathscr{D}(R_1)\mathscr{D}(R_2) = \mathscr{D}(R_3)\\
+    \text{Inverses:}&& R R^{-1} =1 &\implies \mathscr{D}(R) \mathscr{D}^{-1}(R) = 1 \\[-0.5\baselineskip]
+    &&  R^{-1}R =1 &\implies \mathscr{D}^{-1}(R) \mathscr{D}(R) = 1 \\
+    \text{Associativity:}&& R_1(R_2 R_3) = (R_1 R_2) R_3 &\implies \mathscr{D}(R_1) \ab[\mathscr{D}(R_2) \mathscr{D}(R_3)] = \ab[\mathscr{D}_1 \mathscr{D}_2] \mathscr{D}_3.
+\end{align}\end{subequations}
+
+\subsubsection{Commutation Relations for Angular Momentum}
+The fundamental commutation relation for angular momentum is 
+\begin{equation}
+    \comm{J_i}{J_j} = i \hbar \epsilon_{ijk} J_k,\label{eq:commAngular}
+\end{equation}
+where $\epsilon_{ijk}$ is the Levi-Civita symbol. When generators of infinitesimal transformations (like rotation) do not commute we call the corresponding group non-Abelian. Rotation is thus non-Abelian while translation is Abelian since $\comm{p_i}{p_j} = 0$. It is important to emphasize that to obtain the commutation relations for angular momentum we use that $J_k$ is the rotation about the $k$-axis, and that rotation about different axes do not commute. Simply put, The commutation relation Eq. \eqref{eq:commAngular} summarizes all basic properties of rotations in three dimensions.
+
+To see how the system rotates we can look at the expectation value of an operator in a state $\ket\alpha$ and its rotated version $\ket\alpha_R = \mathscr{D}_z(\phi)\ket\alpha$, which gives
+\begin{equation}
+    \expval{J_x} = \prescript{}{R}{\bra\alpha}  J_x \ket\alpha_R = \bra\alpha \mathscr{D}_z^\dagger (\phi) J_x \mathscr{D}_z(\phi) \ket\alpha,
+\end{equation}
+we thus need to compute 
+\begin{equation}
+    \mathscr{D}_z^\dagger (\phi) J_x \mathscr{D}_z(\phi) = \exp\ab(\frac{i J_z \phi}{\hbar}) J_x \exp\ab(-\frac{i J_z \phi}{\hbar}) = J_x \cos\phi - J_y \sin\phi,
+\end{equation}
+and we thus see that we change the expectation value of $J_x$ by rotating the system.
+
+\subsection{\texorpdfstring{Spin $\dfrac{1}{2}$ Systems and Finite Rotations}{Spin 1/2 Systems and Finite Rotations}}
+Experimental evidence suggests that nature realizes the lowest possible dimensional realization of angular momentum, which for a spin $\frac{1}{2}$ system is $N=2$. We can write the spin angular momentum operators as
+\begin{subequations}\begin{align}
+    S_x &= \frac{\hbar}{2} \ab (\kb{\uparrow}{\downarrow} + \kb{\downarrow}{\uparrow}) = \frac{\hbar}{2}\sigma_x\\
+    S_y &= \frac{i\hbar}{2} \ab (-\kb{\uparrow}{\downarrow} + \kb{\downarrow}{\uparrow}) = \frac{i\hbar}{2}\sigma_y\\
+    S_z &= \frac{\hbar}{2} \ab (\kb{\uparrow}{\uparrow} - \kb{\downarrow}{\downarrow}) = \frac{\hbar}{2}\sigma_z.
+\end{align}\end{subequations}
+As shown in the previous subsection the behaviour of a rotation on the expectation value is given by
+\begin{subequations}\label{eqs:SR}\begin{align}
+    \expval{S_x}_R &= \expval{S_x}\cos\phi - \expval{S_y}\sin\phi\label{eq:SxR}\\
+    \expval{S_y}_R &= \expval{S_y}\sin\phi + \expval{S_x}\cos\phi\label{eq:SyR}\\
+    \expval{S_z}_R &= \expval{S_z}\label{eq:SzR},
+\end{align}\end{subequations}
+where we do not see a change in $\expval{S_z}$ since $S_z$ commutes with the rotation operator $\mathscr{D}_z(\phi)$. We see that the behaviour is that of a classical vector rotating in the $xy$-plane, and is general of any $J_k$ and not just for spin.
+
+Examining the rotation operator acting on a general ket
+\begin{equation}
+    \ket\alpha = \bk{\uparrow}{\alpha} \ket\uparrow + \bk{\downarrow}{\alpha}\ket\downarrow,
+\end{equation}
+we find 
+\begin{equation}
+    \mathscr{D}_{z}(\phi)\ket\alpha = e^{-i\phi/2}\bk{\uparrow}{\alpha} \ket\uparrow + e^{i\phi/2}\bk{\downarrow}{\alpha}\ket\downarrow,\label{eq:alphaR}
+\end{equation}
+which has the interesting consequence (due to the half-angle) that a full $2\pi$-rotation does not return the system to its original state, 
+\begin{equation}
+    \mathscr{D}_z(2\pi)\ket\alpha = -\ket\alpha,
+\end{equation}
+such that we need a $4\pi$-rotation. For the calculation of an expectation value, both the bra and ket are rotated the same amount and thus the mins signs cancels. The question is therefore if this is possible to observe experimentally?
+
+\subsubsection{Spin Precession Revisited}
+For a magnetic field $\vec{B} = (0, 0, B_z)^T$ and the spin interaction Hamiltonian
+\begin{equation}
+    H = -\frac{e}{m_e c} \vec{S} \cdot \vec{B} = \omega S_z, \quad \omega = \frac{\abs{e} B_z}{m_e c},
+\end{equation}
+where we recall that $e < 0$ for the electron. The time evolution operator for this Hamiltonian is given by
+\begin{equation}
+    \mathscr{U}(t,0) = \exp\ab( - \frac{i H t}{\hbar}) = \exp\ab( - \frac{iS_z \omega t}{\hbar}),
+\end{equation}
+which is the rotation operator $\mathscr{D}_z(\omega t)$, and it is clear why this Hamiltonian causes spin precession. By using the Eqs. \eqref{eqs:SR} and \eqref{eq:alphaR} we find that the period for the precession is $\tau_\text{precession} = 2\pi /\omega$ and for the state ket $\tau_\text{state ket} = 4\pi/\omega$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% CONTINUE SECTION 3.2 %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{SO(3), SU(2), and Euler Rotations}
+
+\subsubsection{Orthogonal Group}
+The simplest way to characterize a rotation is by defined the axis of rotation ($\hat{\vec{n}}$) and the angle rotated ($\phi$). This requires three numbers, the azimuthal and polar angle of $\hat{\vec{n}}$ as well as the angle rotated $\phi$. This is however not a good way to characterize the rotations when we want to study the group properties. Instead, we characterize the rotation with the rotation matrix $R$. Using the orthogonality condition $R R^T = R^T R = 1$, we find 6 independent equations which reduce the numbers needed to describe the matrix to $9-6 = 3$, which is the same number as the simple way. 
+
+We say that the set of all multiplication operations with orthogonal matrices form a group, which mean that the following conditions are satisfied
+\begin{enumerate}
+    \item The product of any two orthogonal matrices is another orthogonal matrix, which is satisfied because 
+        \begin{equation}
+        (R_1 R_2)(R_1 R_2)^T = R_1 R_2 R_2^T R_1^T = 1.
+        \end{equation}
+    \item The associative law
+        \begin{equation}
+            R_1(R_2 R_3) = (R_1 R_2) R_3
+        \end{equation}
+        holds.
+    \item The identity matrix, physically corresponding to no rotation, is a member of the class of all orthogonal matrices.
+    \item The inverse matrix, physically corresponding to a rotation in the reverse direction, is also a member.
+\end{enumerate}
+This group is called Special Orthogonal group of dimension 3, or SO(3). The name special is due to only including rotation operations, and not for example the inverse operation.
+
+\subsubsection{Unitary Unimodular Group}
+We can characterize a rotation by a $2\times 2$ matrix acting on a spinor
+\begin{equation}
+    \chi =
+        \begin{pmatrix}
+            \bk{\uparrow}{\alpha}\\
+            \bk{\downarrow}{\alpha}
+        \end{pmatrix} 
+        =
+        \begin{pmatrix}
+            c_+\\
+            c_-
+        \end{pmatrix}
+        = c_+ \chi_+ + c_- \chi_-
+\end{equation}
+with $\abs{c_+}^2 + \abs{c_-}^2 = 1$. The most general unitary unimodular matrix can be written as 
+\begin{equation}
+    U(a,b) = 
+        \begin{pmatrix}
+            a & b\\
+            -b^* & a^*
+        \end{pmatrix}
+\end{equation}
+where $a,b \in \mathbb{C}$ and satisfy the unimodular condition 
+\begin{equation}
+    \abs{a}^2 + \abs{b}^2 = 1,
+\end{equation}
+and the matrix fulfils the unitarity condition
+\begin{equation}
+    U^\dagger(a,b)U(a,b) = 1.
+\end{equation}
+This matrix can be used to describe a rotation of a spin $\frac{1}{2}$ system.
+
+The complex parameters are called the Cayley-Klein parameters, and is not quantum mechanical but was used in classical mechanics of rotation before the birth of quantum mechanics.
+
+Other properties of unitary unimodular matrices are 
+\begin{equation}
+    U(a_1,b_1)U(a_2,b_2) = U(a_1a_2 - b_1b_2^*, a_1b_2 + a_2^*b_1)
+\end{equation}
+fulfilling the unimodular condition, and the inverse
+\begin{equation}
+    U^-1(a,b) = U(a^*, -b).
+\end{equation}
+This group is called Special Unitary group of dimensionality 2, or SU(2). A general Unitary matrix can be written as 
+\begin{equation}
+    U = e^{i\gamma}
+        \begin{pmatrix}
+            a & b\\
+            -b^* & a^*
+        \end{pmatrix}
+        , \quad \abs{a}^2 + \abs{b}^2 = 1, \quad \gamma^* = \gamma.
+\end{equation}
+Even though both SO(3) and SU(2) can be used to characterize a rotation, they are not isomorphic, since SO(3) have a period of $2\pi$ while SU(2) have a period of $4\pi$ with a $2\pi$ period being equal to minus the identity matrix. One can also say that both $U(a,b)$ and $U(-a,-b)$ map to the same rotation in SO(3).
+
+\subsubsection{Euler Rotations}
+The Euler rotations is a way to characterize rotation by three angles called Euler angles, which is commonly used in rigid-body classical mechanics. The idea of Euler rotations is to rotate about the $z$-axis, then the $y$-axis, and once again the $z$-axis. Conventionally, in classical mechanics you change the $y$-axis for the $x$-axis, as well as rotate about the body axes instead of the fixed axes. This total rotation may be described as
+\begin{equation}
+    R(\alpha,\beta,\gamma) = R_z(\alpha) R_y(\beta) R_z(\gamma).
+\end{equation}
+There is a correspondence to the above relation but for rotation operators, which is
+\begin{equation}
+    \mathscr{D}(\alpha,\beta,\gamma) = \mathscr{D}_z(\alpha) \mathscr{D}_y(\beta) \mathscr{D}_z(\gamma)
+\end{equation}
+acting on a ket-space. For a spin $\frac{1}{2}$ system we get 
+\begin{align}
+    \mathscr{D}(\alpha,\beta,\gamma) &= \exp\ab(-\frac{i\sigma_3\alpha}{2})\exp\ab(-\frac{i\sigma_2\beta}{2})\exp\ab(-\frac{i\sigma_3\gamma}{2})\\
+    &=
+        \begin{pmatrix}
+            e^{-i(\alpha+\gamma)/2}\cos(\beta/2)    & -e^{-i(\alpha-\gamma)/2}\sin(\beta/2)\\
+            e^{i(\alpha-\gamma)/2}\sin(\beta/2)     & e^{i(\alpha+\gamma)/2}\cos(\beta/2)
+        \end{pmatrix},
+\end{align}
+which is a SU(2) matrix. This matrix is called the $J=1/2$ irreducible representation of rotation operator $\mathscr{D}(\alpha, \beta, \gamma)$, and we have the matrix elements
+\begin{equation}
+    \mathscr{D}_{m'm}^{1/2}(\alpha,\beta,\gamma) = \bkop{j=1/2, m'}{ \exp\ab(-\frac{iJ_z \alpha}{\hbar}) \exp\ab(-\frac{iJ_y \beta}{\hbar}) \exp\ab(-\frac{iJ_z \gamma}{\hbar}) }{j=1/2,m}
+\end{equation}
+
+\subsection{Density Operators and Pure Versus Mixed Ensembles}
+\subsubsection{Polarized Versus Unpolarized Beams}
+Up to this point the formalism deals with an ensemble of identically prepared kets $\k{\alpha}$. We have however not dealt with situations where, say \qty{60}{\percent} of the ensemble is prepared in $\k{\alpha}$ and \qty{40}{\percent} in $\k{\beta}$, with $\alpha\neq\beta$. To solve this we introduce the concept of fractional population with probability weights, where we have some number $w_\uparrow$ being the probability of the system being prepared in the state $\k{\uparrow}$ as well as $w_\downarrow = 1 -w_\uparrow$. Note that these are real numbers that lack phase information and are thus inherently different from a quantum mechanical superposition and instead is related to classical probability theory.
+
+If an ensemble is completely randomized, it is called an unpolarized beam, which in the spin $\frac{1}{2}$ example would be $w_\uparrow = w_\downarrow = 0.5$. If we have a pure ensemble it would mean that we only have one spin orientation and thus $w_\uparrow = 1$ or $w_\downarrow=1$, and we call this for a polarized beam. We could also imagine having something in between these two extremes, which is what we call a mixed ensemble or a partially polarized beam. Note that the different kets need not be orthogonal.
+
+\subsubsection{Ensemble Averages and Density Operator}
+To solve the problem of not just dealing with pure ensembles we introduce the density matrix formalism, which is a general formalism valid for any type of quantum mechanical system, but we will keep the examples in the spin $\frac{1}{2}$ system. We will consider an ensemble where a $w_1$ fraction of the system is in state $\k{\alpha^{(1)}}$, a $w_1$ fraction is in state $\k{\alpha^{(2)}}$, and so on, with the normalization condition
+\begin{equation}
+    \sum_i w_i = 1,
+\end{equation}
+and there is no requirement on orthogonality for the kets. There is also no limitation of the number of terms $i$ regarding the dimensionality of the system. Given an operator $A$ with eigenkets $\k{a'}$, the ensemble average is 
+\begin{equation}
+    [A] = \sum_i w_i \bkop{\alpha^{(i)}}{A}{\alpha^{(i)}} = \sum_i \sum_{a'} w_i \abs{\bk{a'}{\alpha^{(i)}}}^2 a'.
+\end{equation}
+Note that there are two types of probability concepts here. First we have the quantum mechanical probability of the expectation value of $A$ with respect to $\k{\alpha^{(i)}}$ and then a classical probability of the system being in that state. Taking this and expanding into a general basis $\{\k{b'}\}$ we get
+\begin{align}
+    [A] &= \sum_i w_i \sum_{b'b''} \bk{\alpha^{(i)}}{b'} \bkop{b'}{A}{b''} \bk{b''}{\alpha^{(i)}}\\
+    &= \sum_{b'b''} \ab ( \sum_i w_i \bk{b''}{\alpha^{(i)}} \bk{\alpha^{(i)}}{b'} ) \bkop{b'}{A}{b''},
+\end{align}
+where the number of terms in the $b'$ and $b''$ sums are equal to the dimensionality of the ket space. We see that we have a prefactor in front of the factor dependent on $A$. Thus, we introduce the density operator
+\begin{equation}
+    \rho = \sum_i w_i \kb{\alpha^{(i)}}{\alpha^{(i)}}.
+\end{equation}
+We obtain the matrix elements of this using
+\begin{equation}
+    \bkop{b''}{\rho}{b'} = \sum_i w_i \bk{b''}{\alpha^{(i)}}\bk{\alpha^{(i)}}{b'}
+\end{equation}
+with which we can return to the equation of the ensemble average and obtain
+\begin{equation}
+    [A] = \sum_{b'b''} \bkop{b''}{\rho}{b'}\bkop{b'}{A}{b''} = \sum_{b''} \bkop{b''}{\rho A}{b''} = \trace{\rho A}.
+\end{equation}
+Two important properties of the density matrix is that it is Hermitian and that 
+\begin{equation}
+    \trace{\rho} = 1.
+\end{equation}
+For a spin $\frac{1}{2}$ system we have dimensionality $N=2$ and thus the density matrix is a $2\times 2$ matrix. The imposed conditions mean that three independent real parameters are needed to characterize the density matrix. For this system the needed numbers are $[S_x],[S_y]$, and $[S_z]$. Note that a mixed ensemble may be decomposed into pure ensembles in multiple ways, and there is no uniqueness. For a pure ensemble, meaning that there exist a $w_i = 1$ have the property
+\begin{equation}
+    \rho^2 = \rho,
+\end{equation}
+and 
+\begin{equation}
+    \trace{\rho^2} = 1,
+\end{equation}
+and the eigenvalues are either 0 or 1. For a mixed ensemble we always have
+\begin{equation}
+    0 < \trace{\rho^2} < 1.
+\end{equation}
+
+\subsubsection{Time Evolution of Ensembles}
+Let us now consider the time evolution of the density operator. Barring external interaction, we cannot change the relative weights $w_i$, but the kets $\k{\alpha^{(i)}}$ will evolve in time according to the Schrödinger equation. We find from the Schrödinger equation that
+\begin{equation}
+    i\hbar \partial_t \rho = -\comm{\rho}{H},
+\end{equation}
+which looks like the Heisenberg equation of motion but with a sign flip. Important to note however, is that the Heisenberg equation of motion deals with the time evolution of operators, while the equation of motion for the density operator is derived from the Schrödinger picture and is therefore in the Schrödinger picture and not in the Heisenberg picture, even though it is an operator. We also note that this is a quantum mechanical analogue of Liouville's theorem in classical mechanics
+\begin{equation}
+    \partial_t \rho_\text{classical} = - \comm{\rho_\text{classical}}{H}_\text{classical}
+\end{equation}
+
+\subsubsection{Continuum Generalizations}
+It is possible to generalize this formulation for ket spaces spanned by continuous variables. Consider the ket space spanned by the position eigenkets $\k{\vec{x}'}$. We find that the ensemble average is given by 
+\begin{equation}
+    [A] = \int d^3 x' \int d^3 x''\bkop{\vec{x}''}{\rho}{\vec{x}'}\bkop{\vec{x}'}{A}{\vec{x}''},
+\end{equation}
+and we find that the density matrix is described with
+\begin{equation}
+    \bkop{\vec{x}''}{\rho}{\vec{x}'} = \b{\vec{x}''} \ab (\sum_i w_i \kb{\alpha^{(i)}}{\alpha^{(i)}})\k{\vec{x}'} = \sum_i w_i \psi_i(\vec{x}'')\psi_i^*(\vec{x}')
+\end{equation}
+where the wave function appears. Note that the diagonal elements is the weighted sum of probability densities.
+
+\subsubsection{Quantum Statistical Mechanics}
+We will go through some properties of completely random and completely pure density matrices. Firstly, a completely random $N$-dimensional density matrix has the form
+\begin{equation}
+    \rho = \frac{1}{N}
+        \begin{pmatrix}
+            1       & 0         & 0         & \cdots    & 0\\
+            0       & 1         & 0         & \cdots    & 0\\
+            0       & 0         & 1         & \cdots    & 0\\
+            \vdots  & \vdots    & \vdots    & \ddots    & \vdots\\
+            0       & 0         & 0         & \cdots    & 1
+        \end{pmatrix},
+\end{equation}
+while a pure density matrix has the form
+\begin{equation}
+    \rho = 
+        \begin{pmatrix}
+            0      & \dots  &        &        & \dots  & 0      \\
+            \vdots & \ddots &        &        &        & \vdots \\
+                   &        & 0      &        &        &        \\
+                   &        &        & 1      &        &        \\
+                   &        &        &        & 0      &        \\
+            \vdots &        &        &        &        & \ddots \\
+            0      & \dots  &        &        & \dots  & 0
+    \end{pmatrix}.
+\end{equation}
+These two matrices are very different, and we introduce the quantity
+\begin{equation}
+    \sigma = -\trace{\rho\ln\rho}
+\end{equation}
+that characterizes this difference. Writing this quantity in the diagonal basis yields
+\begin{equation}
+    \sigma = - \sum_k \rho_{kk}^\text{diagonal} \ln\rho_{kk}^\text{diagonal},
+\end{equation}
+and it follows from this that $\sigma$ must be positive semidefinite, since $0<\rho_kk<1$ for all $k$. For a completely random density matrix we find
+\begin{equation}
+    \sigma = - \sum_{k=1}^N \frac{1}{N} \ln\ab(\frac{1}{N}) = \ln N,
+\end{equation}
+while for a pure ensemble we find
+\begin{equation}
+    \sigma = 0.
+\end{equation}
+We say that this is a measure of the disorder for a system, and that $\ln N$ is the maximum value this disorder can take for a density matrix under the normalization constraint. We find that $\sigma$ is related to the entropy per constituent member, $S$, by the relation
+\begin{equation}
+    S = k_B \sigma,
+\end{equation}
+where $k_b$ is the Boltzmann constant. Furthermore, we take this to be the definition of entropy in quantum statistical mechanics.
+
+We make the assumption that nature wants to maximize this entropy, under the constraint that $[H]$ has a certain value. With thermal equilibrium we have
+\begin{equation}
+    \partial_t \rho = 0,
+\end{equation}
+which means that $\rho$ and $H$ commute, via the von Neumann equation of motion, and thus may both be diagonalized. That is, we can write $\rho$ in the basis of the energy eigenkets. Using calculus of variations we find that 
+\begin{equation}
+    \rho_{kk} = \frac{\exp(-\beta E_k)}{\sum_l^N \exp(-\beta E_l)},
+\end{equation}
+giving the fractional population of an energy eigenstate, where
+\begin{equation}
+    \beta = \frac{1}{k_B T}.
+\end{equation}
+This is known in statistical mechanics as the canonical ensemble. A completely random ensemble is the limit of $\beta \to 0$, or the high temperature limit. We also note that the denominator is the partition function, $Z$, from statistical mechanics. Thus, if we have $\rho$ in the energy eigenbasis we can write 
+\begin{equation}
+    \rho = \frac{e^{-\beta H}}{Z}.
+\end{equation}
+This can then be used to calculate the ensemble average 
+\begin{equation}
+    [A] = \frac{\trace{e^{-\beta H} A}}{Z} = \frac{\sum_k^N \expval{A}_k \exp(-\beta E_k)}{\sum_k^N \exp(-\beta E_k)}.
+\end{equation}
+Calculating the internal energy per constituent gives
+\begin{equation}
+    U = [H] = \frac{\sum_k^N E_k \exp(-\beta E_k)}{\sum_k^N \exp(-\beta E_k)} = - \partial_\beta \ln Z,
+\end{equation}
+which is a well known formula in statistical mechanics. In the low temperature limit of $\beta \to \infty$ we obtain the pure ensemble, with only the ground state populated.

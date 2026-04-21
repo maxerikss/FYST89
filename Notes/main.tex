@@ -1,0 +1,43 @@
+\documentclass[12pt,titlepage]{article}
+
+\input{format/preamble}
+
+%%%
+\def\nameoflab{Notes on \textit{Modern Quantum Mechanics} by Sakurai \& Napolitano}
+\def\coursecode{FYST89}
+
+\def\authorOne{Max Eriksson}
+\def\authorOneMail{maxerikss@gmail.com}
+\def\headerName{M. Eriksson}
+
+
+\begin{document}
+\include{format/titlepage}
+%\pagestyle{empty}
+\input{format/header}
+
+\fancyfoot{}
+\tableofcontents
+\clearpage
+\input{format/header.tex}
+\setcounter{page}{1}
+
+\pagestyle{fancy}
+
+\input{paper/Chapter1}
+\input{paper/Chapter2}
+\input{paper/Chapter3}
+\input{paper/Chapter4}
+\input{paper/Chapter6}
+\input{paper/Chapter7}
+\input{paper/Chapter8}
+
+%\include{paper/appendix}
+
+\clearpage
+\addcontentsline{toc}{section}{References}
+\begin{singlespace}
+\printbibliography
+\end{singlespace}
+
+\end{document}
