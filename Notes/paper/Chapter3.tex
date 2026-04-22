@@ -449,7 +449,7 @@ Using
 \end{equation}
 we also find
 \begin{equation}
-    \bkop{\vec{x}'}{\vec{L}^2}{\alpha} = -\hbar^2 \ab [ \frac{1}{\sin^2\theta} \partial_\phi^2 + \frac{1}{\sin\theta} \partial_\theta (\sin_\theta \partial_\theta) ]\bk{\vec{x}'}{\alpha},
+    \bkop{\vec{x}'}{\vec{L}^2}{\alpha} = -\hbar^2 \ab [ \frac{1}{\sin^2\theta} \partial_\phi^2 + \frac{1}{\sin\theta} \partial_\theta (\sin\theta \partial_\theta) ]\bk{\vec{x}'}{\alpha},
 \end{equation}
 which, apart from the factor $1/r^2$, is the angular part of the Laplacian $\nabla^2 = \Delta$ in spherical coordinates. It is possible to show this from the kinetic energy operator as well. We start by writing the operator identity
 \begin{equation}
@@ -475,7 +475,71 @@ and since we have
 we can identify $\bkop{\vec{x}'}{\vec{L}^2}{\alpha}$ as the angular part of the Laplacian.
 
 \subsubsection{Spherical Harmonics}
-
+We consider a spinless particle in a spherical symmetrical potential. The wave function is separable in spherical coordinates, and we can write the energy eigenfunctions as 
+\begin{equation}
+    \bk{\vec{x}'}{n,l,m} = R_{nl}(r) Y_l^m(\theta, \phi),
+\end{equation}
+which is a direct consequence of the rotational invariance of the system. For a spherical symmetric system $H$ commutes with $L_z$ and $\vec{L}^2$ and the energy eigenkets are thus eigenkets for $L_z$ and $\vec{L}^2$ also. Since the angular dependence is the same for all systems with spherical symmetry we can isolate this using the direction eigenket $\k{\hat{\vec{n}}}$, and write
+\begin{equation}
+    \bk{\hat{\vec{n}}}{l,m} = Y_l^m(\theta,\phi) = Y_l^m (\hat{\vec{n}}).
+\end{equation}
+We can think of $Y_l^m(\theta,\phi)$ as the amplitude of the state characterized by $l,m$ found in the direction of $\hat{\vec{n}}$ specified by the angles $\theta,\phi$. From eigenvalue equations such as 
+\begin{equation}
+    L_z\k{l,m} = m\hbar \k{l,m}
+\end{equation}
+we can infer the dependence on $Y_l^m(\theta, \phi)$. Multiplying by $\b{\hat{\vec{n}}}$ we find
+\begin{equation}
+    \bkop{\hat{\vec{n}}}{L_z}{l,m} = -i\hbar \partial_\phi \bk{\hat{\vec{n}}}{l,m} = m\hbar \bk{\hat{\vec{n}}}{l,m},
+\end{equation}
+which is
+\begin{equation}
+    -i\hbar \partial\phi Y_l^m(\theta, \phi) = m\hbar Y_l^m(\theta,\phi),
+\end{equation}
+and thus the dependence on $\phi$ of $Y_l^m(\theta,\phi)$ must be $e^{im\phi}$. Similarly, using the eigenvalue equation
+\begin{equation}
+    \vec{L}^2 \k{l,m} = l(l+1)\hbar^2\k{l,m}
+\end{equation}
+we have
+\begin{equation}
+    \bkop{\hat{\vec{n}}}{\vec{L}^2}{l,m} = l(l+1)\hbar^2 \bk{\hat{\vec{n}}}{l,m} = -\hbar^2\ab[ \frac{1}{\sin^2\theta} \partial_\phi^2 + \frac{1}{\sin\theta}\partial_\theta (\sin\theta \partial_\theta)] \bk{\hat{\vec{n}}}{l,m},
+\end{equation}
+which is equivalent to 
+\begin{equation}
+    \ab[ \frac{1}{\sin\theta} \partial_\theta (\sin_\theta\partial\theta) + \frac{1}{\sin^2\theta} \partial_\phi^2 + l(l+1) ]Y_l^m(\theta,\phi) = 0.
+\end{equation}
+The orthogonality relation
+\begin{equation}
+    \bk{l',m'}{l,m} = \delta_{ll'}\delta_{mm'}
+\end{equation}
+is equivalent to 
+\begin{equation}
+    \int_0^{2\pi} d\phi \int_{-1}^1 d\cos\theta Y_{l'}^{m'*}(\theta,\phi)Y_l^m(\theta, \phi) = \delta_{ll'}\delta_{mm'}.
+\end{equation}
+Consider the case $m=l$. We have the equation
+\begin{equation}
+    L_+\k{l,l} = 0,
+\end{equation}
+which leads to 
+\begin{equation}
+    -i \hbar e^{i\phi} \ab[ i\partial_\phi - \cot\theta \partial_\phi ]\bk{\hat{\vec{n}}}{l,l} = 0,
+\end{equation}
+and this partial differential equation is satisfied by
+\begin{equation}
+    \bk{\hat{\vec{n}}}{l,l} = Y_l^l(\theta, \phi) = c_l e^{il\phi} \sin^l(\theta),
+\end{equation}
+with $c_l$ the renormalization constant
+\begin{equation}
+    c_l = \ab[\frac{(-1)^l}{2^l l!}] \sqrt{\frac{(2l+1)(2l)!}{4\pi}}.
+\end{equation}
+From this we can obtain subsequent $Y_l^m(\theta,\phi)$, which for $m\geq 0$ is
+\begin{equation}
+    Y_l^m(\theta,\phi) = \frac{(-1)^l}{2^l l!} \sqrt{\frac{(2l+1)(l+m)!}{4\pi (l-m)!}} e^{im\phi} \frac{1}{\sin^m\theta} \frac{d^{l-m}}{d(\cos\theta)^{l-m} (\sin\theta)^{2l},
+\end{equation}
+and we define
+\begin{equation}
+    Y_l^{-m} = (-1)^m [Y_l^m(\theta,\phi)]^*.
+\end{equation}
+Note here that we cannot have $l$ or $m$ be half-integer valued since this would give us a multivalued function since we acquire a minus sign under a $2\pi$ rotation.
 
 
 \subsubsection{Spherical Harmonics as Rotation Matrices}
