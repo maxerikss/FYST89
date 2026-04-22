@@ -543,7 +543,30 @@ Note here that we cannot have $l$ or $m$ be half-integer valued since this would
 
 
 \subsubsection{Spherical Harmonics as Rotation Matrices}
-
+We can find a general direction eigenket by applying a rotation $\mathscr{D}(R)$ to $\k{\hat{\vec{z}}}$ such that
+\begin{equation}
+    \k{\hat{\vec{n}}} = \mathscr{D}(R)\k{\hat{\vec{z}}}.
+\end{equation}
+We can find this by two rotation, first about the $y$-axis and then about the $z$-axis, which in the language of Euler rotations is
+\begin{equation}
+    \mathscr{D}(R) = \mathscr{D}(\alpha = \phi, \beta=\theta, \gamma = 0).
+\end{equation}
+Inserting the completeness relation in the rotation we find
+\begin{equation}
+    \k{\hat{\vec{n}}} = \sum_l \sum_m \mathscr{R} = \k{l,m}\bk{l,m}{\hat{\vec{z}}}.
+\end{equation}
+We find that $\k{\hat{\vec{n}}}$ expanded in $\k{l,m}$ contains all possible $l$. We now multiply by $\b{l,m'}$ on the left and find
+\begin{align}
+    \bk{l,m'}{\hat{\vec{n}}} = \sum_m \mathscr{D}_{mm'}^{(l)} (\phi,\theta, 0)\bk{l,m}{\hat{\vec{z}}},
+\end{align}
+and we see that $\bk{l,m}{\hat{\vec{z}}} = Y_l^(m*)(0,\phi)$ where $\phi$ is undetermined. Using this we find
+\begin{equation}
+    Y_l^{m**}(\theta,\phi) = \sqrt{\frac{2l+1}{4\pi}} \mathscr{D}_{m'0}^{(l)}(\phi,\theta,0)
+\end{equation}
+or
+\begin{equation}
+    D_{m0}^{(l)}(\phi,\theta,0) = \sqrt{\frac{4\pi}{2l+1}} Y_L^{m*}(\theta, \phi)
+\end{equation}
 
 
 \stepcounter{subsection}
