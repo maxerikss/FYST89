@@ -91,6 +91,10 @@
 % using inkscapefiles
 \graphicspath{{figures/}}
 
+\usepackage{environ}
+
+
+
 \numberwithin{equation}{section}
 \numberwithin{figure}{section}
 
@@ -135,3 +139,12 @@
 \newcommand{\bk}[2]{\braket < #1 | #2 >}
 \newcommand{\kb}[2]{\ketbra | #1 >< #2 |}
 \newcommand{\trace}[1]{\text{Tr}\ab\{ #1 \} }
+
+\NewEnviron{alphaAlign}
+{
+    \begin{subequations}
+    \begin{align}
+        \BODY
+    \end{align}
+    \end{subequations}
+}

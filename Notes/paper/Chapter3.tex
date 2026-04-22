@@ -99,7 +99,7 @@ We postulate that $\mathscr{D}$ has the same group properties as $R$, which are
 \begin{subequations}\begin{align}
     \text{Identity:}&&  R\cdot 1 = R &\implies \mathscr{D}(R) \cdot 1 = \mathscr{D}(R)\\
     \text{Closure:}&&  R_1R_2 = R_3 &\implies \mathscr{D}(R_1)\mathscr{D}(R_2) = \mathscr{D}(R_3)\\
-    \text{Inverses:}&& R R^{-1} =1 &\implies \mathscr{D}(R) \mathscr{D}^{-1}(R) = 1 \\[-0.5\baselineskip]
+    \text{Inverses:}&& R R^{-1} =1 &\implies \mathscr{D}(R) \mathscr{D}^{-1}(R) = 1 \\[-0.2\baselineskip]
     &&  R^{-1}R =1 &\implies \mathscr{D}^{-1}(R) \mathscr{D}(R) = 1 \\
     \text{Associativity:}&& R_1(R_2 R_3) = (R_1 R_2) R_3 &\implies \mathscr{D}(R_1) \ab[\mathscr{D}(R_2) \mathscr{D}(R_3)] = \ab[\mathscr{D}_1 \mathscr{D}_2] \mathscr{D}_3.
 \end{align}\end{subequations}
@@ -630,7 +630,62 @@ The coefficients that appear on the right-hand side are the simplest version of 
 
 
 \subsubsection{Formal Theory of Angular-Momentum Addition}
+We now consider two angular-momentum operators $\vec{J}_1$ and $\vec{J}_2$, living in different subspaces. The individual components of each operator satisfies the normal commutation relations, but they commute with the components of the other operator. Looking at the infinitesimal rotation of both subspaces simultaneously, we see
+\begin{equation}
+    \ab (1 - i \frac{\vec{J}_1 \cdot \hat{\vec{n}}}{\hbar} \delta \phi) \otimes \ab (1 - i \frac{\vec{J}_2 \cdot \hat{\vec{n}}}{\hbar} \delta \phi) = 1 - i \frac{(\vec{J}_1 \otimes 1 + 1 \otimes \vec{J}_2)\cdot \hat{\vec{n}}}{\hbar} \delta\phi.
+\end{equation} 
+We define the total angular momentum operator as
+\begin{equation}
+    \vec{J} = \vec{J}_1 \otimes 1 + 1 \otimes \vec{J}_2 = \vec{J}_1 + \vec{J}_2.
+\end{equation}
+For a finite rotation we have
+\begin{equation}
+    \mathscr{D}_1(R) \otimes \mathscr{D}_2(R) = \exp\ab(-i \frac{\vec{J}_1 \cdot \hat{\vec{n}}}{\hbar} \phi) \otimes \exp\ab(-i \frac{\vec{J}_2 \cdot \hat{\vec{n}}}{\hbar} \phi).
+\end{equation}
+Note the apparent similarities of the angle and axis of rotation for both subspaces. Importantly, the components of $\vec{J}$ satisfy the commutation relation for angular momentum. Physically the total angular momentum operator is the generator of rotation for the entire system. For choosing base kets there are two options:
+\begin{enumerate}
+    \item The simultaneous eigenkets of $\vec{J}_1^2, \vec{J}_2^2, J_{1z},$ and $J_{2z}$, or the $\{j_1,j_2,m_1,m_2\}$ basis, denoted $\k{j_1,j_2;m_1,m_2}$. The defining equations are
+        \begin{alphaAlign}
+            \vec{J}_1^2 \k{j_1,j_2;m_1,m_2} &= j_1(j_1 + 1)\hbar^2 \k{j_1,j_2;m_1,m_2}\\
+            \vec{J}_2^2 \k{j_1,j_2;m_1,m_2} &= j_2(j_2 + 1)\hbar^2 \k{j_1,j_2;m_1,m_2}\\
+            J_{1z} \k{j_1,j_2;m_1,m_2} &= m_1\hbar \k{j_1,j_2;m_1,m_2}\\
+            J_{2z} \k{j_1,j_2;m_1,m_2} &= m_2 \hbar \k{j_1,j_2;m_1,m_2}
+        \end{alphaAlign} 
+    \item The simultaneous eigenkets of $\vec{J}_1^2, \vec{J}_2^2, \vec{J}^2$, and $J_z$ or the $\{j_1, j_2; j, m\}$ basis. We note that this set commutes, denoted $\k{j_1, j_2; j, m}$. The defining equation are
+        \begin{alphaAlign}
+            \vec{J}_1^2 \k{j_1, j_2; j, m} &= j_1(j_1 + 1)\hbar^2 \k{j_1, j_2; j, m}\\
+            \vec{J}_2^2 \k{j_1, j_2; j, m} &= j_2(j_2 + 1)\hbar^2 \k{j_1, j_2; j, m}\\
+            \vec{J}^2 \k{j_1, j_2; j, m} &= j(j + 1)\hbar^2 \k{j_1, j_2; j, m}\\
+            J_z \k{j_1, j_2; j, m} &= m\hbar \k{j_1, j_2; j, m}.
+        \end{alphaAlign}
+    Commonly the values for $j_1,j_2$ are implicit, and the ket is denoted as just $\k{j,m}$. 
+\end{enumerate}
+It is important to note that
+\begin{equation}
+    \comm{\vec{J}^2}{J_z} = 0, \quad \comm{\vec{J}^2}{J_{1z}} \neq 0, \quad \comm{\vec{J}^2}{J_{2z}} \neq 0.
+\end{equation}
+We can therefore not mix these two representations. Consider the connecting transformation for the two bases
+\begin{equation}
+    \k{j_1, j_2; j, m} = \sum_{m_1} \sum_{m_2} \k{j_1, j_2; m_1, m_2} \bk{j_1, j_2; m_1, m_2}{j_1, j_2; j, m}.
+\end{equation}
+The elements $\bk{j_1, j_2; m_1, m_2}{j_1, j_2; j, m}$ are the Clebsch-Gordan coefficients.
 
+We will now study some properties of the Clebsch-Gordan coefficients. If
+\begin{equation}
+    m \neq m_1 + m_2,
+\end{equation}
+the coefficients vanish. The coefficients also vanish unless
+\begin{equation}
+    \abs{j_1 - j_2} \leq j \leq j_1 + j_2.
+\end{equation}
+The Clebsch-Gordan coefficients also form a unitary matrix, and we, by convention, take the elements to be real. A consequence of this (being a real unitary matrix) is that the matrix is orthogonal. We can write the Clebsch-Gordan coefficients in Wigner's 3-j symbol
+\begin{equation}
+    \bk{j_1, j_2; m_1, m_2}{j_1, j_2; j, m} = (-1)^{j_1 - j_2 + m} \sqrt{2j + 1}
+    \begin{pmatrix}
+        j_1 & j_2 & j\\
+        m_1 & m_2 & -m
+    \end{pmatrix}.
+\end{equation}
 
 
 
