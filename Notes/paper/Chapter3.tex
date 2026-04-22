@@ -410,8 +410,69 @@ which is a well known formula in statistical mechanics. In the low temperature l
 \subsection{Orbital Angular Momentum}
 
 \subsubsection{Orbital Angular Momentum as Rotation Generator}
+In the previous section we defined angular momentum as the generator of infinitesimal rotation. If the system lacks spin we can also define the angular momentum in terms of the orbital angular momentum 
+\begin{equation}
+    \vec{L} = \vec{x} \times \vec{p},
+\end{equation}
+which we will discuss in this section.
 
-
+This definition of orbital angular momentum stasifies the known angular momentum commutation relations
+\begin{equation}
+    \comm{L_i}{L_j} = i \epsilon_{ijk} \hbar L_k,
+\end{equation}
+which can be proven from the commutation relation between $\vec{x}$ and $\vec{p}$. We have $L_z = xp_y - yp_x$, and we study if this can be used to think about this as a generator of rotation by using the fact that momentum is the generator of translation. Thus,
+\begin{align}
+    \ab[1 - i \frac{\delta \phi}{\hbar} L_z] \k{\vec{x}'} &= \ab [ 1 - i \frac{p_y}{\hbar} \delta\phi x' + i \frac{p_x}{\hbar} \delta\phi y']\k{\vec{x}'}\\
+    &= \k{x' - y'\delta\phi, y' + x'\delta\phi, z'},
+\end{align}
+which is an infinitesimal rotation around the $z$-axis. If the momentum operator is a generator of translation, we have shown that the orbital angular momentum operator is a generator of rotation. Switching to spherical coordinates, and suppose we have a wave function $\bk{\vec{x}}{\alpha}$ for an arbitrary system ket $\k{\alpha}$ without spin, we can find the rotated wave function
+\begin{align}
+    \b{\vec{x}'} \ab [1 - i \frac{\delta\phi}{\hbar} L_z] \k{\alpha} &= \bk{r, \theta, \phi - \delta \phi}{\alpha}\\
+    &= \bk{\vec{x}'}{\alpha} - \delta\phi \partial_\phi \bk{\vec{x}'}{\alpha},
+\end{align}
+from which we can identify
+\begin{equation}
+    \bkop{\vec{x}'}{L_z}{\alpha} = - i\hbar \partial_\phi \bk{\vec{x}'}{\alpha}.
+\end{equation}
+Considering rotation about the $x$- and $y$-axes we find
+\begin{align}
+    \bkop{\vec{x}'}{L_x}{\alpha} &= - i\hbar (-\sin\phi \partial_\theta - \cot\theta\cos\phi \partial_\phi)\bk{\vec{x}'}{\alpha}\\
+    \bkop{\vec{x}'}{L_y}{\alpha} &= -i\hbar (\cos\phi \partial\theta - \cot\theta\sin\phi \partial_\phi) \bk{\vec{x}'}{\alpha}.
+\end{align}
+We can define the ladder operators $L_\pm$ using these, and we find
+\begin{equation}
+    \bkop{\vec{x}'}{L_\pm}{\alpha} = -i\hbar e^{\pm i \phi} \ab (\pm i\partial_\theta - \cot\theta \partial_\phi)\bk{\vec{x}'}{\alpha}.
+\end{equation}
+Using 
+\begin{equation}
+    \vec{L}^2 = L_z^2 + \frac{1}{2} (L_+ L_- + L_- L_+),
+\end{equation}
+we also find
+\begin{equation}
+    \bkop{\vec{x}'}{\vec{L}^2}{\alpha} = -\hbar^2 \ab [ \frac{1}{\sin^2\theta} \partial_\phi^2 + \frac{1}{\sin\theta} \partial_\theta (\sin_\theta \partial_\theta) ]\bk{\vec{x}'}{\alpha},
+\end{equation}
+which, apart from the factor $1/r^2$, is the angular part of the Laplacian $\nabla^2 = \Delta$ in spherical coordinates. It is possible to show this from the kinetic energy operator as well. We start by writing the operator identity
+\begin{equation}
+    \vec{L}^2 = \vec{x}^2 \vec{p}^2 - (\vec{x}\cdot\vec{p})^2 + i\hbar \vec{x}\cdot\vec{p},
+\end{equation}
+and we also have 
+\begin{align}
+    \bkop{\vec{x}'}{\vec{x}\cdot\vec{p}}{\alpha} &= -i\hbar r \partial_r \bk{\vec{x}'}{\alpha}\\
+    \bkop{\vec{x}'}{(\vec{x}\cdot\vec{p})^2}{\alpha} &= -\hbar^2 (r^2 \partial_r^2 \bk{\vec{x}'}{\alpha} + r \partial_r \bk{\vec{x}'}{\alpha}).
+\end{align}
+Using these we find
+\begin{equation}
+    \bkop{\vec{x}'}{\vec{L}^2}{\alpha} = r^2 \bkop{\vec{x}'}{\vec{p}^2}{\alpha} + \hbar (r^2 \partial_r^2 \bk{\vec{x}'}{\alpha} + 2r \partial_r \bk{\vec{x}'}{\alpha}).
+\end{equation}
+Rewriting such that we get the kinetic energy operator $\vec{p}^2 /2m$, we get
+\begin{equation}
+    \frac{1}{2m} \bkop{\vec{x}'}{\vec{p}^2}{\alpha} = - \frac{\hbar^2}{2m} \ab(\partial_r^2\bk{\vec{x}'}{\alpha} + \frac{2}{r}\partial_r \bk{\vec{x}'}{\alpha}- \frac{1}{\hbar^2r^2} \bkop{\vec{x}'}{\vec{L}^2}{\alpha}),
+\end{equation}
+and since we have 
+\begin{equation}
+    \frac{1}{2m} \bkop{\vec{x}'}{\vec{p}^2}{\alpha} = -\frac{\hbar^2}{2m} \nabla'^2 \bk{\vec{x}'}{\alpha},
+\end{equation}
+we can identify $\bkop{\vec{x}'}{\vec{L}^2}{\alpha}$ as the angular part of the Laplacian.
 
 \subsubsection{Spherical Harmonics}
 
