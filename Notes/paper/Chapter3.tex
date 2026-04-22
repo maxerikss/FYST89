@@ -573,8 +573,60 @@ or
 \subsection{Addition of Angular Momenta}
 
 \subsubsection{Simple Examples of Angular-Momentum Addition}
+We have only studied either spin $\frac{1}{2}$ systems with other degrees of freedom ignored, or space systems with the internal degrees of freedom, such as spin ignored. Before going into the formal theory we will consider some familiar examples.
 
+We consider the state that is a direct product state of the position and spin kets $\k{\vec{x}', \updownarrow} = \k{\vec{x}'} \otimes \k{\updownarrow}$, where operators in the space spanned by the position kets commute by the operators in the space spanned by the spin-space. The rotation operator will still be $\exp(i \vec{J}\cdot\hat{\vec{n}} \phi / \hbar)$, but angular momentum, the generator of rotation, will be
+\begin{equation}
+    \vec{J} = \vec{L} + \vec{S} = \vec{L} \otimes 1 + 1 \otimes \vec{S}.
+\end{equation}
+Since $\comm{\vec{L}}{\vec{S}}=0$ we can write
+\begin{equation}
+    \mathscr{D}(R) = \mathscr{D}^{(\text{orb})} \otimes \mathscr{D}^{(\text{spin})} = \exp\ab(- \frac{i \vec{L} \cdot\hat{\vec{n}}}{\hbar} \phi) \otimes \exp\ab(- \frac{i \vec{S} \cdot\hat{\vec{n}}}{\hbar} \phi).
+\end{equation}
+We can write the wave function for a spin particle as 
+\begin{equation}
+    \bk{\vec{x}', \updownarrow}{\alpha} = \psi_\updownarrow(\vec{x}')
+\end{equation}
+or as a column matrix
+\begin{equation}
+    \begin{pmatrix}
+        \psi_\uparrow(\vec{x}')\\
+        \psi_\downarrow(\vec{x}')
+    \end{pmatrix}.
+\end{equation}
+We might change the representation of the space part to be the eigenket $\k{n,l,m}$.
 
+If we instead consider a spin $\frac{1}{2}$ two particle system, without considering the orbital angular momentum we can write the total spin operator
+\begin{equation}
+    \vec{S} = \vec{S}_1 + \vec{S}_2 = \vec{S}_1 \otimes 1 + 1 \otimes \vec{S}_2,
+\end{equation}
+where it is evident that operators living in the two different spaces commute. The usual commutation relations for the operators in the same space, and for the total operator applies, and we can write the eigenvalues as 
+\begin{align}
+    &\vec{S}^2 = (\vec{S}_1 + \vec{S}_2)^2 : s(s+1)\hbar^2\\
+    &S_z = S_{1z} + S_{2z} : m \hbar\\
+    &S_{1z} : m_1\hbar\\
+    &S_{2z} : m_2\hbar.
+\end{align}
+
+We can expand the ket corresponding of an arbitrary spin of the two particle system by either eigenkets to $\vec{S}^2$ and $S_z$ or eigenkets to $S_{1z}$ and $S_{2z}$:
+\begin{enumerate}
+    \item Expanding in the $\{m_1, m_2\}$ basis gives the possible kets
+            \begin{equation}
+                \k{\uparrow \uparrow}, \k{\uparrow\downarrow}, \k{\downarrow\uparrow}, \text{and } \k{\downarrow\downarrow}.
+            \end{equation}
+    \item Expanding in the $\{s, m\}$ basis (also called the triplet-singlet representation) gives the possible kets ($\k{s, m}$)
+            \begin{equation}
+                \k{0, 0}, \k{1,-1}, \k{1,0}, \text{and } \k{1,1}.
+            \end{equation}
+\end{enumerate}
+The relationship between these two bases are 
+\begin{align}
+    \k{0,0}     &= \frac{1}{\sqrt{2}} (\k{\uparrow\downarrow} - \k{\downarrow\uparrow})\\
+    \k{1,-1}    &= \k{\downarrow\downarrow}\\
+    \k{1,0}     &= \frac{1}{\sqrt{2}} (\k{\uparrow\downarrow} + \k{\downarrow\uparrow})\\
+    \k{1,1}     &= \k{\uparrow\uparrow}.
+\end{align}
+The coefficients that appear on the right-hand side are the simplest version of the Clebsch-Gordan coefficients. These coefficients are the matrix elements of the matrix that transforms between two different bases.
 
 
 \subsubsection{Formal Theory of Angular-Momentum Addition}
