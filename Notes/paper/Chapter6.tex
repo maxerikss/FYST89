@@ -1,1 +1,57 @@
 \section{Scattering Theory}
+Scattering processes are the processes that transform an initial state into a final state, by some potential, which we will treat as a time-dependent perturbation. This is how we learn about experimental processes.
+
+\subsection{Scattering as a Time-Dependent Perturbation}
+We make the assumption that the Hamiltonian may be written as
+\begin{equation}
+    H = H_0 + V(\vec{x}),
+\end{equation}
+with
+\begin{equation}
+    H_0 = \frac{\vec{p}^2}{2m},
+\end{equation}
+the kinetic energy operator. The eigenvalues of $H_0$ are 
+\begin{equation}
+    E_{\vec{k}} = \frac{\hbar^2 \vec{k}^2}{2m}.
+\end{equation}
+Plane wave eigenvectors of $H_0$, with eigenvalues $E_{\vec{k}}$, are $\k{\vec{k}}$, and we make the assumption that the scattering potential $V(\vec{r})$ is time independent. We will treat this as an incoming particle seeing the scattering potential which is active only when the particle is close to the scatterer. This analysis will be performed using time-dependent perturbation theory in the interaction picture.
+
+We know that the state evolution is
+\begin{equation}
+    \k{\alpha, t_0; t}_I = U_I(t,t_0)\k{\alpha, t_0;t_0},
+\end{equation}
+where $U_I(t,t_0)$ is the time evolution operator in the interaction picture, satisfying
+\begin{equation}
+    i\hbar \partial_t U_I(t,t_0) = V_I(t)U_I(t,t_0).
+\end{equation}
+We have $U_I(t_0,t_0) = 1$ and $V_I(t)=\exp(iH_0t/\hbar) V \exp(-iH_0t/\hbar)$, and the exact solution to the equation may be written as
+\begin{equation}
+    U_I(t,t_0) = 1 - \frac{i}{\hbar}\int_{t_0}^t dt' V_I(t')U_I(t',t_0).
+\end{equation}
+The transition amplitude for the transformation from an initial state $\k{i}$ into a final state $\k{n}$, both eigenstate to $H_0$, can be written as 
+\begin{equation}
+    \bkop{n}{U_I(t,t_0)}{i} = \delta_{ni} - \frac{i}{\hbar} \sum_m \bkop{n}{V}{m} \int_{t_0}^{t} dt' e^{i \omega_{nm} t'} \bkop{m}{U_I(t',t_0)}{i},
+\end{equation}
+where $\hbar\omega_{nm} = E_n - E_m$ and $\delta{ni}=\bk{n}{i}$. We arrive here by inserting the completeness relation $\sum_m \kb{m}{m}$, and converting $V_I \to V$. 
+
+In scattering theory we deal with a continuum of states, not discrete ones, we therefore have to adjust the above equation to account for this. We do this by quantizing the scattering states in a cubic volume of side $L$. We have, in the coordinate representation, the wave function
+\begin{equation}
+    \bk{\vec{x}}{\vec{k}} = \frac{1}{L^{3/2}} e^{i\vec{k}\cdot\vec{x}},
+\end{equation}
+where we will take $L\to\infty$ at the end. Note that $\bk{\vec{k'}}{\vec{k}} = \delta_{\vec{k'}\vec{k}}$.
+
+The initial and final states exist only asymptomatically, and we therefore have to have $t\to\infty$ and $t_0 \to -\infty$.
+
+We start by doing a first order treatment, where we set $\bkop{m}{U_I(t',t_0)}{i} = \delta_{mi}$, which gives
+\begin{equation}
+    \bkop{n}{U_I(t,t_0)}{i} = \delta_{ni} - \frac{i}{\hbar} \bkop{n}{V}{i} \int_{t_0}^{t} dt' e^{i\omega_{ni}t'}.
+\end{equation}
+For the $t\to\infty$ we have Fermi's golden rule, and in order to include the behaviour for $t_0 \to - \infty$ we define a matrix $T_{ni}$ by
+\begin{equation}
+    \bkop{n}{U_I{t,t_0}}{i} = \delta_{ni} - \frac{i}{\hbar} T_{ni} \int_{t_0}^{t} dt' e^{i\omega_{ni}t' + \epsilon t'}
+\end{equation}
+with $\epsilon > 0$ and $t \ll 1/\epsilon$, and we need to make sure to take the limit $\epsilon \to 0$ before we take $t \to \infty$. We now define the scattering matrix
+\begin{equation}
+    S_{ni} = \lim_{t\to \infty} \ab[\lim_{\epsilon\to 0} \bkop{n}{U_I{t,-\infty}}{i}] = \delta{ni} - \frac{i}{\hbar} T_{ni} \int_{-\infty}^{\infty} dt' e^{i\omega{ni} t'} = \delta_{ni} - 2\pi i \delta(E_n - E_i) T_{ni}.
+\end{equation}
+We can see that the scattering matrix consists of two parts. One part where the final and initial states are the same, and one part governed by the $T$-matrix, with some sort of scattering.
