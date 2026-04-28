@@ -111,3 +111,41 @@ The cross section $d\sigma$ is defined as the transition rate divided by the flu
 We now have to relate the matrix elements $T_{ni}$ to the scattering potential $V(\vec{r})$.
 
 \subsubsection{Solving for the $T$ matrix}
+Recalling the definition of the $T$ matrix we have
+\begin{equation}
+    \bkop{n}{U_I(t,-\infty)}{i} = \delta_{ni} + \frac{1}{\hbar} T_{ni} \frac{e^{i\omega_{ni}t + \epsilon t}}{-\omega_{ni}+ i\epsilon}
+\end{equation}
+and 
+\begin{equation}
+    \bkop{n}{U_I(t,-\infty)}{i} = \delta_{ni} - \frac{i}{\hbar} \sum_m V_{nm} \int_{-\infty}^{t} dt' e^{i\omega_{nm}t'} \bkop{m}{U_I(t', -\infty)}{i}.
+\end{equation}
+Inserting the former equation into the latter under the integral sign we obtain three terms. The first of which is $\delta_{ni}$, the second looks like the former equation but with $T_{ni}$ replaced by $V_{ni}.$ The final term is
+\begin{equation}
+    -\frac{i}{\hbar} \frac{1}{\hbar} \sum_m V_{nm} \frac{T_{mi}}{-\omega_{mi} + i\epsilon} \int_{-\infty}^{t} dt' e^{i(\omega_{nm} + \omega_{mi})t' + \epsilon t'}.
+\end{equation}
+Since $\omega_{nm} + \omega_{mi} = \omega_{ni}$, the result of the integral can be taken out from the summation. Gathering terms and comparing to the former equation we find that
+\begin{equation}
+    T_{ni} = V_{ni} + \frac{1}{\hbar} \sum_m V_{nm} \frac{T_{mi}}{-\omega_{mi} + i\epsilon} = V_{ni} + \sum_m V_{nm} \frac{T_{mi}}{E_i - E_m + i\hbar\epsilon}.
+\end{equation}
+This is an inhomogeneous system of linear equation which can be solved for $T_{ni}$ in terms of the matrix elements $V_{nm}$, which are known.
+
+We can define a set of vectors $\k{\psi^{(+)}}$ in terms of components in some basis $\k{j}$, such that
+\begin{equation}
+    T_{ni} = \sum_j \bkop{n}{V}{j}\bk{j}{\psi^{(+)}} = \bkop{n}{V}{\psi^{(+)} }.
+\end{equation}
+Inserting this into the equation for $T_{ni}$, we find
+\begin{equation}
+    \bkop{n}{V}{\psi^{(+)} } = \bkop{n}{V}{i} + \sum_m \bkop{n}{V}{m} \frac{\bkop{m}{V}{\psi^{(+)}}}{E_i - E_m + i\hbar \epsilon}.
+\end{equation}
+Since this must be true for all $\k{n}$ we find 
+\begin{equation}
+    \k{\psi{(+)}} = \k{i} + \frac{1}{E_i - H_0 + i\hbar \epsilon} V\k{psi^{(+)}},
+\end{equation}
+which is known as the Lippmann-Schwinger equation. We can define an operator $T$ with matrix elements $T_{ni}$ by writing
+\begin{equation}
+    T\k{i} = V \k{\psi^{(+)}},
+\end{equation}
+we can then find the operator equation
+\begin{equation}
+    T = V + V\frac{1}{E_i - H_0 + i\hbar\epsilon}T.
+\end{equation}
