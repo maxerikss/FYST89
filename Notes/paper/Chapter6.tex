@@ -149,3 +149,17 @@ we can then find the operator equation
 \begin{equation}
     T = V + V\frac{1}{E_i - H_0 + i\hbar\epsilon}T.
 \end{equation}
+
+\subsubsection{Scattering from the Future to the Past}
+We could instead imagine the scattering process evolving backwards in time, from a plane wave state $\k{i}$ in the far future, to a state $\k{n}$ in the distant past. We would in this case write 
+\begin{equation}
+    U_I(t,t_0) = 1 + \frac{i}{\hbar} \int_{t}^{t_0} dt' V_I(t') U_I(t',t_0)
+\end{equation}
+and the $T$ matrix is the n defined as 
+\begin{equation}
+    \bkop{n}{U_I(t,t_0)}{i} = \delta_{ni} + \frac{1}{\hbar} T_{ni} \int_{t}^{t_0} dt' e^{i\omega_{ni} t' - \epsilon t'}.
+\end{equation}
+In this case we can define $T$ using a different set of states $\k{\psi^{(-)}}$ through
+\begin{equation}
+    T\k{i} = V \k{\psi^{(-)}}.
+\end{equation}
