@@ -52,6 +52,62 @@ For the $t\to\infty$ we have Fermi's golden rule, and in order to include the be
 \end{equation}
 with $\epsilon > 0$ and $t \ll 1/\epsilon$, and we need to make sure to take the limit $\epsilon \to 0$ before we take $t \to \infty$. We now define the scattering matrix
 \begin{equation}
-    S_{ni} = \lim_{t\to \infty} \ab[\lim_{\epsilon\to 0} \bkop{n}{U_I{t,-\infty}}{i}] = \delta{ni} - \frac{i}{\hbar} T_{ni} \int_{-\infty}^{\infty} dt' e^{i\omega{ni} t'} = \delta_{ni} - 2\pi i \delta(E_n - E_i) T_{ni}.
+    S_{ni} = \lim_{t\to \infty} \ab[\lim_{\epsilon\to 0} \bkop{n}{U_I{t,-\infty}}{i}] = \delta_{ni} - \frac{i}{\hbar} T_{ni} \int_{-\infty}^{\infty} dt' e^{i\omega{ni} t'} = \delta_{ni} - 2\pi i \delta(E_n - E_i) T_{ni}.
 \end{equation}
 We can see that the scattering matrix consists of two parts. One part where the final and initial states are the same, and one part governed by the $T$-matrix, with some sort of scattering.
+
+\subsubsection{Transition Rates and Cross Sections}
+We define that transition rate as
+\begin{equation}
+    w(i\to n) = \partial_t  \abs{\bkop{n}{U_I{t,-\infty}}{i}}^2
+\end{equation}
+and for $\k{i} \neq \k{n}$, we have
+\begin{equation}
+    \bkop{n}{U_I(t,-\infty)}{i} = - \frac{i}{\hbar} T_{ni} \int_{-\infty}^{t} dt' e^{i\omega_{ni} t' + \epsilon t'} = -\frac{i}{\hbar} T_{ni} \frac{e^{i\omega_{ni} t + \epsilon t}}{i \omega_{ni} + \epsilon}.
+\end{equation}
+The transition rate for this is then
+\begin{equation}
+    w(i \to n) = \partial_t \ab [\frac{1}{\hbar^2} \abs{T_{ni}}^2 \frac{e^{2\epsilon t}}{\omega_{ni}^2 + \epsilon^2} ] = \frac{1}{\hbar^2} \abs{T_{ni}}^2 \frac{2\epsilon e^{2\epsilon t}}{\omega_{ni}^2 + \epsilon^2}.
+\end{equation}
+Here, we need to take $\epsilon \to 0$ first, before taking $t \to \infty$. If $\omega_{ni}\neq 0$, we see that $w \to 0$, while for $\omega_{ni} = 0$, we get a delta function. We find that 
+\begin{equation}
+    \frac{e e^{2\epsilon t}}{\omega_{ni}^2 + \epsilon^2} = \pi \delta(\omega_{ni}) = \pi \hbar \delta(E_n - E_i),
+\end{equation}
+and we get the transmission rate
+\begin{equation}
+    w(i \to n) = \frac{2\pi}{\hbar} \abs{T_{ni}}^2 \delta(E_n - E_i)
+\end{equation}
+which is independent of time so the limit $t\to\infty$ is trivial. This is very similar to Fermi's golden rule, but with $T_{ni}$ instead of $V_{ni}$, which is a more general matrix. We can use this transition rate to determine a scattering cross section.
+
+Similarly to Fermi's golden rule, we need to determine the density of final states, $\rho(E_n) = \Delta n /\Delta E_n$, so that we can integrate over the final state energy. We will consider elastic scattering, where $\k{i} = \k{\vec{k}}, \k{n}=\k{\vec{k}'}$, and $\abs{\vec{k}} = \abs{\vec{k}'}= k$. Using the normalization due to our cubic volume, we can write
+\begin{equation}
+    E_{\vec{n}} = \frac{\hbar^2 \vec{k}'^2}{2 m} = \frac{\hbar^2}{2m} \ab (\frac{2\pi}{L})^2 \abs{\vec{n}}^2,
+\end{equation}
+and thus
+\begin{equation}
+    \Delta E_{\vec{n}} = \partial_{\vec{n}} (\Delta E_{\vec{n}}) \Delta\abs{\vec{n}} = \frac{\hbar^2}{m} \ab(\frac{2\pi}{L})^2 \abs{\vec{n}} \Delta \abs{\vec{n}},
+\end{equation}
+where $\vec{n} = n_x \hv{i} + n_y \hv{j} + n_z \hv{k}$ and $n_{x,y,z} \in \mathbb{Z}$. We have $\vec{n} = (L/2\pi) \abs{\vec{k}'} = (L/2\pi)k$ and $L$ is large, so we can imagine $\abs{\vec{n}}$ as almost continuous. The number of states within a spherical shell of radius $\abs{\vec{n}}$ and thickness $\Delta\abs{\vec{n}}$ is 
+\begin{equation}
+    \Delta n = 4\pi \abs{\vec{n}}^2 \Delta \abs{\vec{n}} \times \frac{d\Omega}{4\pi},
+\end{equation}
+considering the fraction of solid angle represented by the final state vector $\vec{k}'$. Thus,
+\begin{equation}
+    \rho(E_n) = \frac{\Delta n}{\Delta E_n} = \frac{m}{\hbar^2} \ab(\frac{L}{2\pi})^2 \abs{\vec{n}} d\Omega = \frac{mk}{\hbar^2} \ab(\frac{L}{2\pi})^3 d\Omega.
+\end{equation}
+Integrating over the final states gives
+\begin{equation}
+    w(i\to n) = \frac{m k L^3}{(2\pi)^2 \hbar^3} \abs{T_{ni}}^2 d\Omega.
+\end{equation}
+
+This concept of cross section is used to understand the transition rate in scattering experiments. Determining the rate at which particles scatter into a solid angle $d\Omega$ from a beam of particles with momentum $\hbar\vec{k}$. The speed of the particles is $v = \hbar k /m$, and the time needed to cross the cubic volume is $t = L/v$. The particle flux in the beam is $v / L^3$, and the probability flux for the wave function becomes
+\begin{equation}
+    \vec{j}(\vec{x}, t) = \ab (\frac{\hbar}{m}) \frac{\vec{k}}{L^3} = \frac{v}{L^3}.
+\end{equation}
+The cross section $d\sigma$ is defined as the transition rate divided by the flux. Finally, we arrive at
+\begin{equation}
+    \frac{d\sigma}{d\Omega} = \ab(\frac{mL^3}{2 \pi\hbar^2})^2 \abs{T_{ni}}^2.
+\end{equation}
+We now have to relate the matrix elements $T_{ni}$ to the scattering potential $V(\vec{r})$.
+
+\subsubsection{Solving for the $T$ matrix}
