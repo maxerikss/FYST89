@@ -139,7 +139,7 @@ Inserting this into the equation for $T_{ni}$, we find
 \end{equation}
 Since this must be true for all $\k{n}$ we find 
 \begin{equation}
-    \k{\psi{(+)}} = \k{i} + \frac{1}{E_i - H_0 + i\hbar \epsilon} V\k{\psi^{(+)}},
+    \k{\psi^{(+)}} = \k{i} + \frac{1}{E_i - H_0 + i\hbar \epsilon} V\k{\psi^{(+)}},
 \end{equation}
 which is known as the Lippmann-Schwinger equation. We can define an operator $T$ with matrix elements $T_{ni}$ by writing
 \begin{equation}
@@ -278,3 +278,79 @@ We call $f(\vec{k}', \vec{k})$ the scattering amplitude, and we remark that the 
 
 \subsubsection{Wave Packet Description}
 This description is not valid for a particle being scattered by a scattering center if we model the particle as a wave packet approaching a scattering center. This is hard, but we notice that if the diemsnions of the wave packet is much larger than the size of the scatterer, i.e. the range of $V$, the plane wave approach is valid.
+
+\subsubsection{The Optical Theorem}
+A useful and fundamental relationship in quantum mechanics is the optics theorem, which relates the imaginary part of the forward scattering amplitude $f(\vec{k},\vec{k})$ ($\theta = 0$), to the total cross section $\sigma_\text{tot} = \int d\Omega (d\sigma / d\Omega)$, and it reads
+\begin{equation}
+    \Im f(\vec{k},\vec{k}) = \frac{k \sigma_\text{tot}}{4\pi}.
+\end{equation}
+The proof of this theorem start with the Lippmann-Schwinger equation, with $\k{i} \to \k{\vec{k}}$
+\begin{equation}
+    \k{\psi^{(+)}} = \k{\vec{k}} + \frac{1}{E - H_0 + i \epsilon} V \k{\psi^{(+)}}
+\end{equation}
+and we can rewrite this to obtain
+\begin{equation}
+    \k{\vec{k}} =  \k{\psi^{(+)}} - \frac{1}{E - H_0 + i \epsilon} V \k{\psi^{(+)}}.
+\end{equation}
+We can use this and write
+\begin{alphaAlign}
+    \bkop{\vec{k}}{V}{\psi^{(+)}} &= \ab [ \b{\psi^{(+)}} - \b{\psi^{(+)}} V \frac{1}{E - H_0 - i\epsilon} ] V \k{\psi^{(+)}}\\
+    &= \bkop{\psi^{(+)}}{V}{\psi^{(+)}} - \bkop{\psi^{(+)}}{V \frac{1}{E-H_0-i\epsilon} V}{\psi^{(+)}}.
+\end{alphaAlign}
+We want to take the imaginary part of both sides of this expression. The first term on the right is the expectation value of a Hermitian operator and is thus real. To calculate the imaginary part of the second term we need to use complex analysis and Cauchy's principle value as we get a singularity when $\epsilon \to 0$. Since $\epsilon > 0$, we use a contour integral with a small semicircle extending down to the lower half plane around the singularity. Let this semicircle have the radius $\delta$, and let the singularity be at $z_0 = x_0 + i\epsilon$. To show the trick we will use, let us consider a complex function $f(z)= x + iy$, and we can then write
+\begin{equation}
+    \int_{-\infty}^{\infty} dx \frac{f(x)}{x-x_0} = \mathscr{P} \int_{-\infty}^{\infty} dx \frac{f(x)}{x-x_0} + \int_c dz \frac{f(z)}{z-z_0},
+\end{equation}
+where $c$ denotes the semicircle contour, and the Cauchy principle vlaue is defined as
+\begin{equation}
+    \mathscr{P} \int_{-\infty}^{\infty} dx \frac{f(x)}{x-x_0} = \lim_{\delta \to 0} \ab\{ \int_{-\infty}^{x_0 - \delta} dx \frac{f(x)}{x-x_0}  + \int_{x_0 + \delta}^{\infty}dx \frac{f(x)}{x-x_0}\}.
+\end{equation}
+For the second term we can use calculus of residues to evaluate
+\begin{equation}
+    \int_c dz \frac{f(z)}{z-z_0} = i\pi f(x_0) \quad \text{as }\delta \to 0.
+\end{equation}
+We now have 
+\begin{equation}
+    \int_{-\infty}^{\infty} dx \frac{f(x)}{x-x_0} = \mathscr{P} \int_{-\infty}^{\infty} dx \frac{f(x)}{x-x_0} + i\pi f(x_0).
+\end{equation}
+
+Returning to the equation at hand, we start by writing
+\begin{alphaAlign}
+    \lim_{\epsilon \to 0} \ab [\frac{1}{E - H_0 - i\epsilon}] &= \lim_{\epsilon\to 0} \int_{-\infty}^{\infty} dE' \frac{\delta(E-E')}{E' - H_0 - i \epsilon}\\
+    &= i\pi \delta(E-H_0),
+\end{alphaAlign}
+using what we showed earlier, and we have omitted the principle value since it is a real number. Recalling $T\k{\vec{k}} = V\k{\psi^{(+)}}$, we can write
+\begin{equation}
+    \Im \bkop{\vec{k}}{V}{\psi^{(+)}} = -\pi \bkop{\vec{k}}{T^\dagger \delta(E-H_0)T}{\vec{k}}.
+\end{equation}
+Taking the imaginary part of the forward scattering amplitude gives
+\begin{alphaAlign}
+    \Im f(\vec{k},\vec{k}) &= -\frac{mL^3}{2\pi \hbar^2} \Im \bkop{\vec{k}}{V}{\psi^{(+)}}\\
+    &= \frac{m L^3}{2 \hbar^2} \bkop{\vec{k}}{T^\dagger \delta(E-H_0)T}{\vec{k}}\\
+    &= \frac{m L^3}{2 \hbar^2} \sum_{\vec{k}'} \bkop{\vec{k}}{T^\dagger \delta(E-H_0)}{\vec{k}'} \bkop{\vec{k}'}{T}{\vec{k}}\\
+    &= \frac{m L^3}{2\hbar^2} \sum_{\vec{k}'} \abs{\bkop{\vec{k}'}{T}{\vec{k}}}^2 \delta_{E, \frac{\hbar^2 \vec{k}'^2}{2m}}, 
+\end{alphaAlign}
+where $E=\hbar^2k^2/2m$. To simplify, we start with
+\begin{equation}
+    \bkop{\vec{k}'}{T}{\vec{k}} = \bkop{\vec{k}'}{V}{\psi^{(+)}} = -\frac{2\pi\hbar^2}{m L^3} f(\vec{k}', \vec{k}),
+\end{equation}
+and using 
+\begin{equation}
+    \sum_{\vec{k}} \to \frac{L^3}{(2\pi)^3} \int d^3 k,
+\end{equation}
+leading to
+\begin{alphaAlign}
+    \Im f(\vec{k}, \vec{k}) &= \frac{m L^3}{2 \hbar^2} \ab (\frac{2\pi \hbar^2}{m L^3})^2 \sum_{\vec{k}'} \abs{f(\vec{k}', \vec{k})}^2 \delta_{E, \frac{\hbar^2 \vec{k}'^2}{2m}} \\
+    &\to \frac{2\pi^2 \hbar^2}{m L^3} \frac{L^3}{(2\pi)^3} \int d^3 k' \abs{f(\vec{k}', \vec{k})}^2 \delta\ab(E -  \frac{\hbar^2 \vec{k}'^2}{2m})\\
+    &= \frac{\hbar^2}{4\pi m} \int d^3 k' \frac{d\sigma}{d\Omega_{k'}}\delta\ab(E -  \frac{\hbar^2 \vec{k}'^2}{2m}).
+\end{alphaAlign}
+We have the volume element $d^3k' = k'^2 dk' d\Omega_{k'}$, so we have
+\begin{alphaAlign}
+    \Im f(\vec{k},\vec{k}) &= \frac{\hbar^2}{4\pi m} \int d\Omega_{k'} \frac{d\sigma}{d\Omega_{k'}} \int d k' k'^2 \delta\ab(E -  \frac{\hbar^2 \vec{k}'^2}{2m})\\
+    &= \frac{\hbar^2}{4\pi m} \frac{m}{k \hbar^2} \int d\sigma \int dk' k'^2 \delta(k' - k)\\
+    &= \frac{k}{4\pi} \sigma_\text{tot},
+\end{alphaAlign}
+where we have used the identity for the delta function
+\begin{equation}
+    \delta(g(x)) = \frac{\delta(x-x_0)}{\abs{\partial_x g(x_0)}}.
+\end{equation}
