@@ -147,7 +147,7 @@ which is known as the Lippmann-Schwinger equation. We can define an operator $T$
 \end{equation}
 we can then find the operator equation
 \begin{equation}
-    T = V + V\frac{1}{E_i - H_0 + i\hbar\epsilon}T.
+    T = V + V\frac{1}{E_i - H_0 + i\hbar\epsilon}T. \label{eq:TV}
 \end{equation}
 
 \subsubsection{Scattering from the Future to the Past}
@@ -354,3 +354,129 @@ where we have used the identity for the delta function
 \begin{equation}
     \delta(g(x)) = \frac{\delta(x-x_0)}{\abs{\partial_x g(x_0)}}.
 \end{equation}
+
+\subsection{The Born Approximation}
+To calculate the scattering amplitude $f(\vec{k}', \vec{k})$ for some given potential $V(\vec{x})$ is done by calculating the matrix elements
+\begin{equation}
+    \bkop{\vec{k}'}{V}{\psi^{(+)}} = \bkop{\vec{k}'}{T}{\vec{k}}
+\end{equation}
+which is not easy as we lack the necessary closed analytical expressions.
+
+We will consider the expansion of $T$ as powers of $V$, shown by the operator equation Eq. \eqref{eq:TV}, which reads
+\begin{equation}
+    T = V + V\frac{1}{E - H_0 - i\epsilon}V + V\frac{1}{E - H_0 - i\epsilon}V\frac{1}{E - H_0 - i\epsilon}V + \cdots.
+\end{equation}
+If we make the first order Born approximation, i.e. the first term, we get $T = V$, or equivalently $\k{\psi^{(+)}} = \k{\vec{k}}$. This gives
+\begin{alphaAlign}
+    f^{(1)}(\vec{k}', \vec{k}) &= - \frac{mL^3}{2\pi\hbar^2} \bkop{\vec{k}'}{V}{\psi^{+}}\\
+    &= -\frac{mL^3}{2\pi \hbar^2} \int d^3 x' \bk{\vec{k}'}{\vec{x}'} \bkop{\vec{x}'}{V}{\vec{k}}\\
+    &= - \frac{m L^3}{2 \pi \hbar^2} \int d^3 x' V(\vec{x}') \bk{\vec{k}'}{\vec{x}'} \bk{\vec{x}'}{\vec{k}}\\
+    &= -\frac{m L^3}{2\pi \hbar^2} \int d^3 x' V(\vec{x}') \frac{e^{-i\vec{k}'\cdot\vec{x}'}}{L^{3/2}} \frac{e^{i \vec{k}\cdot \vec{x}'}}{L^{3/2}}\\
+    &= - \frac{m}{2\pi \hbar^2} \int d^3x' V(\vec{x}') e^{i(\vec{k}-\vec{k}')\cdot \vec{x}'}.
+\end{alphaAlign}
+Note that this is, disregarding the prefactor, the three-dimensional Fourier transform of the potential $V$ with respect to $\vec{q} = \vec{k}-\vec{k}'$.
+
+Consider the important case where $V$ is a spherically symmetric potential, implying that $f^{(1)}(\vec{k}', \vec{k})$ is a function of $q = \abs{\vec{q}}$. Since energy conservation implies $\abs{\vec{k}'} = k$, we can write 
+\begin{equation}
+    q = 2 k \sin\frac{\theta}{2}.
+\end{equation}
+Using this in the integral we can evaluate by switching to spherical coordinates and letting the $z$-axis align with $\vec{q}$,
+\begin{alphaAlign}
+    f^{(1)}(\theta) &= -\frac{m}{2\pi \hbar^2} \int d^3 x' V(r) e^{iqr\cos\theta} \\
+    &=- \frac{m}{2\pi \hbar^2} \int_0^\infty dr r^2 V(r) \underbrace{\int_0^\pi d\theta' \sin\theta' e^{iqr\cos\theta'}}_{u=\cos\theta', \; du = -\sin\theta d\theta'}  \int_0^{2\pi} d\phi\\
+    &=- \frac{m}{\hbar^2} \int_0^\infty dr r^2 V(r) \int_{-1}^{1} du e^{i q r u}\\
+    &= - \frac{m}{\hbar^2} \int_0^\infty dr r^2 V(r) \frac{e^{iqr} - e^{-iqr}}{iqr}\\
+    &= -\frac{2m}{q\hbar^2} \int_0^\infty dr r V(r) \sin(qr)
+\end{alphaAlign}
+
+We now consider scattering by a finite square well 
+\begin{equation}
+    V(r) = 
+        \begin{cases}
+            V_0 & r\leq a\\
+            0   & r > a.
+        \end{cases}
+\end{equation}
+The integral becomes
+\begin{alphaAlign}
+    f^{(1)}(\theta) &= - \frac{2m}{q\hbar^2} V_0 \int_0^a dr r\sin(qr)\\
+    &= - \frac{2m V_0}{\hbar^2} \frac{1}{q} \ab(  \ab[ r \frac{-\cos(qr)}{q} ]_0^a + \frac{1}{q}\int_0^a dr \cos(qr))\\
+    &= - \frac{2m V_0}{\hbar^2} \frac{1}{q} \ab( -a\frac{\cos(qr)}{q} + \frac{\sin(qr)}{q^2})\\
+    &= - \frac{2m V_0}{\hbar^2} \frac{a^3}{(qa)^2} \ab(\frac{\sin(qr)}{qa} - \cos(qa)).
+\end{alphaAlign}
+A nuclear potential is rather well approximated by a square well.
+
+Considering another spherically symmetric potential, the Yukawa potential
+\begin{equation}
+    V(r) = \frac{V_0 e^{-\mu r}}{\mu r}
+\end{equation}
+where $V_0$ is independent of $r$ and $1/\mu$ is related to the range of the potential. The scattering amplitude is then
+\begin{alphaAlign}
+    f^{(1)}(\theta) &= - \frac{2m}{\hbar^2} \frac{V_0}{\mu q} \int_{0}^{\infty} dr r \frac{e^{-\mu r}}{r} \sin(qr)\\
+    &= - \frac{2m}{\hbar^2} \frac{V_0}{\mu q} \int_{0}^{\infty} dr e^{-\mu r} \sin(qr)\\
+    &= - \frac{2m}{\hbar^2} \frac{V_0}{\mu q} \frac{1}{2i} \int_0^\infty dr \ab( e^{-(\mu - i q)r} - e^{-(\mu + i q)r}  )\\
+    &= - \frac{2m}{\hbar^2} \frac{V_0}{\mu q} \frac{1}{2i} \ab( \ab[-\frac{e^{-(\mu - i q)r}}{\mu - i q}]_0^\infty - \ab[-\frac{e^{-(\mu + i q)r}}{\mu + i q}]_0^\infty  )\\
+    &=- \frac{2m}{\hbar^2} \frac{V_0}{\mu q} \frac{1}{2i} \ab( \frac{1}{\mu - i q} - \frac{1}{\mu + i q})\\
+    &= - \frac{2m}{\hbar^2} \frac{V_0}{\mu q} \frac{q}{\mu^2 + q^2}\\
+    &= - \ab(\frac{2 m V_0}{\mu \hbar^2}) \frac{1}{q^2 + \mu^2}.
+\end{alphaAlign}
+Note that
+\begin{equation}
+    q^2 = 4 k^2 \sin\frac{\theta}{2} = 2 k^2 (1 - \cos\theta).
+\end{equation}
+
+The differential cross section for the Yukawa potential is
+\begin{equation}
+    \frac{d\sigma}{d\Omega} = \ab(\frac{2 m V_0}{\mu\hbar^2})^2 \frac{1}{\ab[2k^2(1-\cos\theta) + \mu^2]^2}.
+\end{equation}
+If the ratio $V_0/\mu$ is fixed as we take the limit $\mu \to 0$, we find that we obtain the Coulomb potential. If we have $V_0 / \mu = ZZ'e^2$ as $\mu \to 0$, we find
+\begin{equation}
+    \frac{d\sigma}{d\Omega} = \frac{(2m)^2 (ZZ'e^2)^2}{\hbar^4} \frac{1}{16 k^4 \sin^4(\theta/2)},
+\end{equation}
+and if we identify $\abs{\vec{p}} = \hbar k$ and the kinetic energy $E_\text{KE} = \abs{\vec{p}}/2m$, we further find that
+\begin{equation}
+    \frac{d\sigma}{d\Omega} = \frac{1}{16} \ab(\frac{ZZ'e^2}{E_\text{KE}})^2 \frac{1}{\sin^4(\theta/2)}.
+\end{equation}
+This equation is exactly the Rutherford scattering cross section which is obtained classically.
+
+In general, if the scattering cross section for a spherically symmetric potential can be approximated with the first Born approximation, we have the following properties:
+\begin{enumerate}
+    \item $d\sigma/d\Omega$ and $f(\theta)$, is a function of $q$ only, with $f(\theta)$ depending on the energy and scattering angle, only through $2k^2 (1-\cos(\theta))$.
+    \item $f(\theta)$ is always real.
+    \item $d\sigma/d\Omega$ is independent of the sign of $V$.
+    \item For small $k$ ($q$ necessarily small)
+            \begin{equation}
+                f^{(1)}(\theta) = -\frac{1}{4\pi} \frac{2m}{\hbar^2} \int d^3 x V(r)
+            \end{equation}
+    involving a volume integral independent of $\theta$. (Unsure about the factor $1/4\pi$)
+    \item $f(\theta)$ is small for large $q$ due to rapid oscillation of the integrand.
+\end{enumerate}
+
+To investigate the validity of the Born approximation we return to the wave function
+\begin{equation}
+    \bk{\vec{x}}{\psi^{(+)}} = \bk{\vec{x}}{\vec{k}} - \frac{2m}{\hbar^2} \int d^3 x' \frac{e^{i k \abs{\vec{x} - \vec{x}'}}}{4\pi \abs{\vec{x}- \vec{x}'}} V(\vec{x}') \bk{\vec{x}'}{\psi^{(+)}}.
+\end{equation}
+The approximation is that $T\approx V$, or equivalently $\k{\psi^{(+)}} = \k{\vec{k}}$. The second term on the right-hand side must be much smaller than the first. Assuming a typical value for the potential to be $V_0$, and it is acting within some range $a$. Writing $r' = \abs{\vec{x} - \vec{x}'}$ and evaluating the integral roughly, we obtain the validity condition
+\begin{equation}
+    \abs{\frac{2m}{\hbar} (\frac{4\pi}{3}a^3)\frac{e^{ikr'}}{4\pi a} V_0 \frac{e^{i \vec{k}\cdot\vec{x}'}}{L^{3/2}}} \ll \abs{\frac{e^{i\vec{k}\cdot\vec{x}}}{L^{3/2}}}.
+\end{equation}
+In the low energy limit ($ka \ll 1$), the exponential factors may be replaced by unity, and ignoring factors of order unity, we get the simpler criterion
+\begin{equation}
+    \frac{m\abs{V_0}a^2}{\hbar^2} \ll 1.
+\end{equation}
+
+Consider the Yukawa potential, with the range $a=1/\mu$. The validity condition becomes
+\begin{equation}
+    \frac{m\abs{V_0}}{\hbar^2 \mu^2} \ll 1.
+\end{equation}
+Comparing this to the condition for the Yukawa potential to develop a bound state, which can be shown is
+\begin{equation}
+    \frac{2m\abs{V_0}}{\hbar^2 \mu^2} \geq 2.7,
+\end{equation}
+where $V_0$ is negative. It is clear that for a potential strong enough to have bound states, we cannot use the first order Born approximation. If we instead consider high energies ($ka \gg 1$), the exponential factors instead oscillate strongly over the integration, and cannot be set to unity. It is possible to show that, the validity condition is
+\begin{equation}
+    \frac{2m}{\hbar^2} \frac{\abs{V_0}a}{k} \ln(ka) \ll 1.
+\end{equation}
+For larger $k$, the condition is more easily satisfied. Generally, the Born approximation tends to be better at higher energies.
+
+
