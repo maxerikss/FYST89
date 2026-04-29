@@ -372,7 +372,7 @@ If we make the first order Born approximation, i.e. the first term, we get $T = 
     &= -\frac{mL^3}{2\pi \hbar^2} \int d^3 x' \bk{\vec{k}'}{\vec{x}'} \bkop{\vec{x}'}{V}{\vec{k}}\\
     &= - \frac{m L^3}{2 \pi \hbar^2} \int d^3 x' V(\vec{x}') \bk{\vec{k}'}{\vec{x}'} \bk{\vec{x}'}{\vec{k}}\\
     &= -\frac{m L^3}{2\pi \hbar^2} \int d^3 x' V(\vec{x}') \frac{e^{-i\vec{k}'\cdot\vec{x}'}}{L^{3/2}} \frac{e^{i \vec{k}\cdot \vec{x}'}}{L^{3/2}}\\
-    &= - \frac{m}{2\pi \hbar^2} \int d^3x' V(\vec{x}') e^{i(\vec{k}-\vec{k}')\cdot \vec{x}'}.
+    &= - \frac{m}{2\pi \hbar^2} \int d^3x' V(\vec{x}') e^{i(\vec{k}-\vec{k}')\cdot \vec{x}'}.\label{eq:firstOrderBorn}
 \end{alphaAlign}
 Note that this is, disregarding the prefactor, the three-dimensional Fourier transform of the potential $V$ with respect to $\vec{q} = \vec{k}-\vec{k}'$.
 
@@ -479,4 +479,24 @@ where $V_0$ is negative. It is clear that for a potential strong enough to have 
 \end{equation}
 For larger $k$, the condition is more easily satisfied. Generally, the Born approximation tends to be better at higher energies.
 
-
+\subsubsection{The Higher-Order Born Approximation}
+Writing $T$ to the second order in $V$, we obtain
+\begin{equation}
+    T = V + V \frac{1}{E -H_0 + i\epsilon} V.
+\end{equation}
+We continue the Born approximation with
+\begin{equation}
+    f(\vec{k}', \vec{k}) \approx f^{(1)}(\vec{k}', \vec{k}) + f^{(2)}(\vec{k}', \vec{k})
+\end{equation}
+where we have 
+\begin{equation}
+    f^{(1)}(\vec{k}', \vec{k}) = - \frac{m}{2\pi \hbar^2} \int d^3x' V(\vec{x}') e^{i(\vec{k}-\vec{k}')\cdot \vec{x}'},
+\end{equation}
+and
+\begin{alphaAlign}
+    f^{(2)}(\vec{k}',\vec{k}) &= -\frac{1}{4\pi} \frac{2m}{\hbar^2} (2\pi)^3 \int d^3 x' \int d^3 x''\\
+    &\quad \bk{\vec{k}'}{\vec{x}'}V(\vec{x}') \bkop{\vec{x}'}{\frac{1}{E- H_0 + i\epsilon}}{\vec{x}''} V(\vec{x}'') \bk{\vec{x}''}{\vec{k}}\\
+    &= -\frac{1}{4\pi} \frac{2m}{\hbar^2} \int d^3 x' \int d^3 x'' \\
+    &\quad e^{-i \vec{k}'\cdot \vec{x}'} V(\vec{x}') \ab[\frac{2m}{\hbar^2} G_+(\vec{x}', \vec{x}'')]V(\vec{x}'')e^{i \vec{k}\cdot\vec{x}''}.
+\end{alphaAlign}
+The physical interpretation of the second order is that the incident wave interacts with at $\vec{x}''$ via $V(\vec{x}'')$, then propagates from $\vec{x}''$ to $\vec{x}'$ via $G_+(\vec{x}', \vec{x}'')$, where another interaction occurs via $V(\vec{x}')$. Finally, the wave gets scattered in the direction $\vec{k}'$. We see that the second order is interpreted as a two-step scattering process. We can view the subsequent orders similarly.
