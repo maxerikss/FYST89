@@ -655,8 +655,67 @@ We can now interpret the physics of scattering. When a scatterer is absent, we c
 leaving the incoming wave unaffected.
 
 \subsubsection{Unitarity and Phase Shifts}
+We will now investigate the consequences of unitarity, or equivalently probability conservation. For a time independent formulation the flux current density $\vec{j}$ must satisfy
+\begin{equation}
+    \nabla \cdot \vec{j} = -\partial_t \abs{\psi}^2 = 0.
+\end{equation}
+Consider a spherical surface of large radius, then by Gauss' theorem we have
+\begin{equation}
+    \int_S \vec{j} \cdot d\vec{S} = 0.
+\end{equation}
+Physically, these two equations tells us that there are no sources or sinks of particles, and the outgoing and incoming flux must be the same.
+Due to angular-momentum conservation this must hold for each partial wave separately, or in other words, we must have the coefficient of $e^{ikr}/r $ have the same magnitude as the coefficient of $e^{-ikr}/r$. We define $S_l(k)$ as
+\begin{equation}
+    S_l(k) = 1 + 2 i k f_l(k)
+\end{equation}
+and this is then
+\begin{equation}
+    \abs{S_l(k)} = 1.
+\end{equation}
+Thus, the only thing that can happen is a change of phase, not magnitude, of the outgoing wave. This equation is known as the unitarity relation for the $l$th partial wave. We can also regard $S_l(k)$ as the $l$th diagonal element of the $S$ operator, which has unitarity as a requirement due to probability conservation.
+
+We can therefore at large distances, at most see a phase change of the outgoing wave in the wave function as a result of scattering. By convention, we call this phase $2\delta_l$, and we write
+\begin{equation}
+    S_l = e^{2 i \delta_l},
+\end{equation}
+where $\delta$ is real. We note that $\delta_l$ is an implicit function of $k$. We can now rewrite the partial-wave amplitude as
+\begin{equation}
+    f_l = \frac{S_l -1}{2ik},
+\end{equation}
+or in terms of $\delta_l$
+\begin{equation}
+    f_l = \frac{e^{2i \delta_l} - 1}{2ik} = \frac{e^{i\delta_l}\sin\delta_l}{k} = \frac{1}{k\cot\delta_l - ik},
+\end{equation}
+depending on what is convenient. The full scattering amplitude is
+\begin{alphaAlign}
+    f(\theta) &= \sum_{l=0} (2l+1) \ab(\frac{e^{2i\delta_l}-1}{2ik}) P_l(\cos\theta)\\
+    &= \frac{1}{k} \sum_{l=0} (2l+1) e^{i\delta_l} \sin\delta_l P_l(\cos\theta).
+\end{alphaAlign}
+This expression rests on the principles of rotational invariance and probability conservation. It is possible to obtain the same expression by solving the Schrödinger equation with a real, spherically symmetric potential. However, our treatment is of interest as it can more easily be generalized to situations where nonrelativistic potentials fails.
+
+We find the total cross section by
+\begin{alphaAlign}
+    \sigma_\text{tot} &= \int d\Omega \frac{d\sigma}{d\Omega} = \int d\Omega \abs{f(\theta)}^2\\
+    &= \frac{1}{k^2} \int_0^{2\pi} d\phi \int_{-1}^{1} d(\cos\theta) \sum_l \sum_{l'}(2l+1)(2l'+1) e^{i\delta_{l}}\sin\delta_l e^{-i\delta_{l'}}\sin\delta_{l'} P_l P_{l'}\\
+    &= \frac{4\pi}{k^2} \sum_l (2l+1)\sin^2\delta_l.
+\end{alphaAlign}
+
+As $\delta_l$ is a function of energy, so is $f_l(k)$. The partial wave amplitude, has the restriction of the unitarity relation, which we can explore by drawing an Argand diagram for $kf_l$, noting that
+\begin{equation}
+    k f_l = \frac{i}{2} + \frac{1}{2} e^{-(i\pi/2) + 2 i \delta_l}.
+\end{equation}
+We find a circle with radius $1/2$ centred at $z=i/2$, called the unitary circle, on which $kf_l$ must lie. If $\delta_l$ is small we find
+\begin{equation}
+    f_l = \frac{e^{i\delta_l}\sin\delta_l}{k} \approx \frac{(1+i\delta_l)\delta_l}{k} \approx \frac{\delta_l}{k},
+\end{equation}
+and $f_l$ is thus almost purely real. If we instead consider $\delta_l$ close to $\pi/2$ we have that $f_l$ is almost purely imaginary with maximized magnitude, and the $l$th partial wave can be considered to be in resonance. The maximum partial cross section is
+\begin{equation}
+    \sigma_\text{max}^{(l)} = \frac{4\pi}{k^2} (2l+1),
+\end{equation}
+and is achieved when $\sin^2\delta_l = 1$.
 
 \stepcounter{subsubsection}\subsubsection{Hard-Sphere Scattering}
+
 
 \stepcounter{subsection}\subsection{Low-Energy Scattering and Bound States}
 
