@@ -611,7 +611,48 @@ Thus, the wave functions are
 which are very useful when developing partial-wave expansion.
 
 \subsubsection{Partial-Wave Expansion}
+We return to the case of $V\neq 0$, and assume a spherically symmetric potential. Then, the transition operator $T$ is a scalar operator that commutes with $\vec{L}^2$ and $\vec{L}$.
 
+Using the spherical wave basis, the Wigner-Eckart theorem gives
+\begin{equation}
+    \bkop{E',l',m'}{T}{E,l,m} = T_l(E) \delta_{ll'} \delta_{mm'},
+\end{equation}
+where we see that $T$ is diagonal in both $l$ and $m$, and that the diagonal element depends on $E$ and $l$ but not $m$. 
+
+Considering the scattering amplitude
+\begin{alphaAlign}
+    f(\vec{k}',\vec{k}) &= -\frac{1}{4\pi} \frac{2m}{\hbar^2} L^3 \bkop{\vec{k}'}{T}{\vec{k}}\\
+    &\to - \frac{1}{4\pi}\frac{2m}{\hbar} (2\pi)^3 \sum_l\sum_m \sum_{l'}\sum_{m'} \int dE \int dE'\\
+    &\quad \times \bk{\vec{k}'}{E',l',m'} \bkop{E',l',m'}{T}{E,l,m} \bk{E,l,m}{\vec{k}}\\
+    &= -\frac{1}{4\pi} \frac{2m}{\hbar^2} (2\pi)^3 \frac{\hbar^2}{mk} \sum_l \sum_m T_l\ab(\frac{\hbar^2 k^2}{2m}) Y_L^m(\hv{k}')Y_l^{m*} (\hv{k})\\
+    &= -\frac{4\pi^2}{k} \sum_l \sum_m T_l\ab(\frac{\hbar^2 k^2}{2m}) Y_l^m(\hv{k}') Y_l^{m*}(\hv{k}). 
+\end{alphaAlign}
+Choosing a coordinate system such that $\vec{k}$ is in the positive $z$-direction, we have
+\begin{equation}
+    Y_l^m(\hv{k}) = \sqrt{\frac{2l+1}{4\pi}} \delta_{m0}.
+\end{equation}
+Taking $\theta$ to be the angle between $\vec{k}$ and $\vec{k}'$, we can write
+\begin{equation}
+    Y_l^0(\vec{k}') = \sqrt{\frac{2l+1}{4\pi}} P_l(\cos\theta).
+\end{equation}
+We define a partial-wave amplitude $f_l(k)$ as
+\begin{equation}
+    f_l(k) = -\frac{\pi T_l(E)}{k}.
+\end{equation}
+We can now rewrite the scattering amplitude to
+\begin{equation}
+    f(\vec{k}', \vec{k}) = f(\theta) = \sum_{l=0}^{\infty}(2l+1) f_l(k)P_l(\cos\theta).
+\end{equation}
+
+Studying the large-distance behaviour of the wave function $\bk{\vec{x}}{\psi^{(+)}}$, using what is found above, gives
+\begin{equation}
+    \bk{\vec{x}}{\psi^{(+)}} = \frac{1}{(2\pi)^{3/2}} \sum_l (2l+1) \frac{P_l}{2ik} \ab[ (1 + 2ik f_l(k))\frac{e^{ikr}}{r} - \frac{e^{-i(kr-l\pi)}}{r} ].
+\end{equation}
+We can now interpret the physics of scattering. When a scatterer is absent, we can model the plane wave as a sum of spherically incoming and outgoing waves. The presence of a scatter changes the coefficient of the outgoing waves by
+\begin{equation}
+    1 \to 1 + 2ik f_l(k),
+\end{equation}
+leaving the incoming wave unaffected.
 
 \subsubsection{Unitarity and Phase Shifts}
 
