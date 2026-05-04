@@ -503,9 +503,115 @@ The physical interpretation of the second order is that the incident wave intera
 
 \subsection{Phase Shifts and Partial Waves}
 
+
 \subsubsection{Free-Particle States}
+The Hamiltonian for a free particle is only the kinetic energy operator, which commutes with the momentum operator, and $\vec{L}^2$, and $L_z$. We can consider a simultaneous eigenket of $H_0, \vec{L}^2, L_z$, ignoring spin, called the spherical wave state, denoted $\k{E,l,m}$. We can denote a general free-particle state as a superposition of $\k{E,l,m}$ states, in the same way we might regard it as a superposition of $\k{\vec{k}}$, with different $\vec{k}$. Thus, we can analyse a free-particle state, either using a plane wave basis $\{\k{\vec{k}}\}$, or a spherical wave basis $\{\k{E,l,m}\}$.
+
+We want to find the transformation function $\bk{\vec{k}}{E,l,m}$ between these two bases. First consider the normalization for spherical waves
+\begin{equation}
+    \bk{E',l',m'}{E,l,m} = \delta_{ll'}\delta_{mm'}\delta(E-E').
+\end{equation}
+We guess the angular dependence to be the same as for position-space wave functions, that is, spherical harmonics, and write
+\begin{equation}
+    \bk{\vec{k}}{E,l,m} = g_{lE}(k) Y_l^m(\hv{k}),
+\end{equation}
+where the function $g_{lE}(k)$, will be considered later. To prove this we start by considering a plane wave state propagating in the positive $z$-direction, $\k{k\hv{z}}$. This state has the important property
+\begin{equation}
+    L_z \k{k\hv{z}} = (xp_y -yp_x)\k{k_x=0, k_y=0, k_z=k} = 0.
+\end{equation}
+Classically, this is reasonable since $\vec{L}\cdot \vec{p} = (\vec{x}\times\vec{p})\cdot\vec{p} = 0$. We can expand $\k{k\hv{z}}$ as
+\begin{equation}
+    \k{k\hv{z}} = \sum_{l'} \int dE' \k{E',l',m'=0} \bk{E',l'm'=0}{k\hv{z}}.
+\end{equation}
+We do not sum over $m'$ since $\bk{E',l',m'}{k\hv{z}}=0$ for $m'\neq 0$. To obtain a general ket $\k{\vec{k}}$, we only have to apply the relevant rotation operator 
+\begin{equation}
+    \k{\vec{k}} = \mathscr{D}(\alpha =\phi, \beta = \theta, \gamma = 0) \k{k\hv{z}}
+\end{equation}
+Multiplying by $\b{E,l,m}$ from the left we obtain
+\begin{alphaAlign}
+    \bk{E,l,m}{\vec{k}} &= \sum_{l'} \int dE' \bkop{E,l,m}{\mathscr{D}(\alpha=\phi, \beta = \theta, \gamma = 0)}{E',l'm'=0}\\
+    &\quad \times \bk{E',l',m'=0}{k\hv{z}}\\
+    &= \sum_{l'} \int dE' \mathscr{D}_{m0}^{(l')} (\alpha=\phi, \beta=\theta, \gamma=0)  \delta_{ll'} \delta(E-E')\\
+    &\quad \times \bk{E',l',m'=0}{k\hv{z}}\\
+    &= \mathscr{D}_{m0}^{(l)} (\alpha = \phi, \beta = \theta, \gamma = 0) \bk{E,l,m=0}{k \hv{z}}.
+\end{alphaAlign}
+Since $\bk{E,l,m=0}{k \hv{z}}$ is independent of the orientation of $\vec{k}$, that it is independent of the angles $\theta, \phi$, we can call it
+\begin{equation}
+    \bk{E,l,m=0}{k \hv{z}} = \sqrt{\frac{2l+1}{4\pi}} g_{lE}^*(k).
+\end{equation}
+We recall that we can write a spherical harmonic as
+\begin{equation}
+    Y_l^{m'*} (\theta, \phi) = \sqrt{\frac{2l+1}{4\pi}} \mathscr{D}_{m'0}^{(l)}(\alpha = \phi, \beta = \theta, \gamma = 0),
+\end{equation}
+and we can then write
+\begin{equation}
+    \bk{\vec{k}}{E,l,m} = g_{lE}(k) Y_l^m(\hv{k}).
+\end{equation}
+We note 
+\begin{equation}
+    (H_0 - E)\k{E,l,m} = 0,
+\end{equation}
+and 
+\begin{equation}
+    \b{\vec{k}} (H_0 - E) = \ab(\frac{\hbar^2 k^2}{2m} - E) \b{\vec{k}}.
+\end{equation}
+Combining these we see that
+\begin{equation}
+    \ab(\frac{\hbar^2 k^2}{2m} - E) \bk{\vec{k}}{E,l,m} = 0,
+\end{equation}
+so $\bk{\vec{k}}{E,l,m}$ can only be non-zero only if $E = \hbar^2 k^2 /2m$, so we are able to write
+\begin{equation}
+    g_{lE} (k) = N \delta\ab(\frac{\hbar^2 k^2}{2m} - E).
+\end{equation} 
+Returning to the normalization condition we find
+\begin{equation}
+    \bk{E',l',m'}{E,l,m} = \abs{N}^2 \frac{mk'}{\hbar^2} \delta(E-E') \delta{ll'}\delta(mm'),
+\end{equation}
+where we see that $N=\hbar/\sqrt{mk}$ is sufficient. We therefore end up with
+\begin{equation}
+    \bk{\vec{k}}{E,l,m} = \frac{\hbar}{\sqrt{mk}} \delta\ab(\frac{\hbar^2 k^2}{2m} - E) Y_l^m(\hv{k}).
+\end{equation}
+From this we can find the expansion of $\k{\vec{k}}$ in the spherical wave states as
+\begin{alphaAlign}
+    \k{\vec{k}} &= \sum_l \sum_m \int dE \k{E,l,m}\bk{E,l,m}{\vec{k}}\\
+    &= \sum_{l=0}^{\infty} \sum_{m=-l}^{l} \k{\frac{\hbar^2 k^2}{2m},l,m} \ab(\frac{\hbar}{\sqrt{mk}} Y_l^{m*}(\hv{k}))  
+\end{alphaAlign}
+
+We now consider the wave function in position space, which from wave mechanics is known as
+\begin{equation}
+    \bk{\vec{x}}{E,l,m} = c_l j_l(kr) Y_l^m(\hv{r}),
+\end{equation}
+where $j_l(kr)$ is the spherical Bessel function of order $l$. To find $c_l$, we evaluate
+\begin{alphaAlign}
+    \bk{\vec{x}}{\vec{k}} &= \sum_l \sum_m \int dE \bk{\vec{x}}{E,l,m}\bk{E,l,m}{\vec{k}}\\
+    &= \sum_l \sum_m \int dE c_l j_l(kr) Y_l^m(\hv{r}) \frac{\hbar}{\sqrt{mk}} \delta(E - \frac{\hbar^2 k^2}{2m}) Y_l^{m*}(\hv{k})\\
+    &= \sum_l \frac{2l+1}{4\pi} P_l(\hv{k}\cdot \hv{r}) \frac{\hbar}{\sqrt{mk}} c_l j_l(kr),
+\end{alphaAlign}
+where the addition theorem
+\begin{equation}
+    \sum_m Y_l^m(\hv{r}) Y_l^{m*}(\hv{k}) = \frac{2l+1}{4\pi} P_l(\hv{k}\cdot\hv{r})
+\end{equation}
+have been used. We can also write
+\begin{equation}
+    \bk{\vec{x}}{\vec{k}} = \frac{e^{i\vec{k}\cdot\vec{x}}}{(2\pi)^{3/2}} = \frac{1}{(2\pi)^{3/2}} \sum_l (2l+1)i^l j_l(kr) P_l(\hv{k}\cdot \hv{r}),
+\end{equation}
+which can be shown using the integral representation of the spherical Bessel function
+\begin{equation}
+    j_l(kr) = \frac{1}{2i^l} \int_{-1}^{1} d(\cos\theta) e^{ikr\cos\theta} P_l(\cos\theta).
+\end{equation}
+Comparing these two results gives
+\begin{equation}
+    c_l = \frac{i^l}{\hbar} \sqrt{\frac{2mk}{\pi}}.
+\end{equation}
+Thus, the wave functions are
+\begin{alphaAlign}
+    \bk{\vec{k}}{E,l,m} &= \frac{\hbar}{\sqrt{mk}} \delta\ab(\frac{\hbar^2 k^2}{2m} - E) Y_l^m(\hv{k})\\
+    \bk{\vec{x}}{E,l,m} &= \frac{i^l}{\hbar} \sqrt{\frac{2mk}{\pi}} j_l(kr) Y_l^m(\hv{r}),
+\end{alphaAlign}
+which are very useful when developing partial-wave expansion.
 
 \subsubsection{Partial-Wave Expansion}
+
 
 \subsubsection{Unitarity and Phase Shifts}
 
