@@ -715,6 +715,55 @@ and $f_l$ is thus almost purely real. If we instead consider $\delta_l$ close to
 and is achieved when $\sin^2\delta_l = 1$.
 
 \stepcounter{subsubsection}\subsubsection{Hard-Sphere Scattering}
+Consider scattering by a hard rigid sphere, that is, we have the potential
+\begin{equation}
+    V = 
+    \begin{cases}
+        \infty  & r < R\\
+        0       & r > R.    
+    \end{cases}
+\end{equation}
+We know that the wave function must vanish at $r=R$ since the potential is impenetrable. We have
+\begin{equation}
+    A_l(r) |_{r=R} = 0,
+\end{equation}
+or 
+\begin{equation}
+    j_l (kR)\cos\delta_l - n_l(kR)\sin\delta_l = 0,
+\end{equation}
+or
+\begin{equation}
+    \tan\delta_l = \frac{j_l(kR)}{n_l(kR)}.
+\end{equation}
+Thus, we know the phase shifts in terms of the spherical Bessel functions.
+
+Considering the $l=0$ case, called $S$-wave scattering, we find
+\begin{equation}
+    \tan\delta_0 = \frac{\sin(kR)/kR}{\cos(kR)/kR} = -\tan kR,
+\end{equation}
+or $\delta_0 = -kR$. We find the radial wave function as
+\begin{equation}
+    A_0 (r) \propto \frac{\sin kr }{kr}\cos\delta_0 + \frac{\cos kr}{kr} \sin\delta_0 = \frac{1}{kr} \sin(kr + \delta_0).
+\end{equation}
+Plotting this gives a sinusoidal wave shifted compared to a free wave by an amount $R$.
+We want to study the low-energy ($kR$ small and $kR \ll 1$) and high-energy ($kR$ large) limits. For the low-energy limit, we use 
+\begin{alphaAlign}
+    j_l(kr) &\approx \frac{(kr)^l}{(2l+1)!!}\\
+    n_l(kr) &\approx -\frac{(2l-1)!!}{(kr)^{l+1}}
+\end{alphaAlign}
+to obtain
+\begin{equation}
+    \tan\delta_l = \frac{-(kR)^{2l+1}}{\{(2l+1)[(2l-1)!!]^2\}}.
+\end{equation}
+We see that for $l>0$ that the contribution goes to 0 quickly since $kR \ll 1$, and we have pure $S$-wave scattering. Because $\delta_0 = -kR$ is no matter the size of $k$ we find the differential cross section
+\begin{equation}
+    \frac{d\sigma}{d\Omega} = \frac{\sin^2\delta_0}{k^2} =\approx R^2
+\end{equation}
+and the total cross section is 
+\begin{equation}
+    \sigma_\text{tot} = \int d\Omega \frac{d\sigma}{d\Omega} = 4\pi R^2.
+\end{equation}
+Interestingly, this is exactly 4 times larger than the geometric cross section, the disc of radius $R$ obtained by the shadows blocking the propagating plane wave.
 
 
 \stepcounter{subsection}\subsection{Low-Energy Scattering and Bound States}
