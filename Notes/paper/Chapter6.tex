@@ -767,5 +767,43 @@ Interestingly, this is exactly 4 times larger than the geometric cross section, 
 
 
 \stepcounter{subsection}\subsection{Low-Energy Scattering and Bound States}
+When $\lambdabar = 1/k$ is comparable to or larger than the potential range $R$, (low energy regime), partial waves for $l > 0$ are generally unimportant. The phase-shift goes to zero as
+\begin{equation}
+    \delta l \sim k^{2l+1}.
+\end{equation}
 
 \subsubsection{Rectangular Well or Barrier}
+We will consider $S$-wave scattering 
+\begin{equation}
+    V = 
+    \begin{cases}
+        V_0 = \text{constant}   & \text{for } r<R\\
+        0                       & \text{otherwise}
+    \end{cases}
+    \begin{cases}
+        V_0>0   & \text{repulsive}\\
+        V_0<0   & \text{attractive}.
+    \end{cases}
+\end{equation}
+Many of the features obtained by considering this potential are applicable to other finite range potentials. We have already discussed the outside solution. The inside solution may be obtained for a constant $V_0$ as
+\begin{equation}
+    u = r A_{l=0}(r) \propto \sin(k'r),
+\end{equation} 
+where $k'$ is determined by
+\begin{equation}
+    E - V_0 = \frac{\hbar^2 k'^2}{2m},
+\end{equation}
+using the boundary condition $u(r=0) = 0$. That is, we get a sinusoidal function inside the potential as well, as long as $E>V_0$. The curvature is however different as it depends on if the potential is attractive or repulsive. If we instead have $V_0>E$ we get 
+\begin{equation}
+    u(r) \propto \sinh(\kappa r),
+\end{equation}
+with $\kappa$ defined by
+\begin{equation}
+    \frac{\hbar \kappa^2}{2m}  = V_0 - E.
+\end{equation}
+
+We consider the attractive case $(V_0<0)$, and imagine the magnitude to increase, leading to increased attraction. This results in a wave function with even larger curvature. If we suppose that the depth of the well is such that the interval $[0,R]$ fits one quarter of a cycle of the sinusoidal wave, and using the low-energy $kR \ll 1$ limit, we find that the phase shift is $\delta_0 = \pi/2$. This results in maximum $S$-wave cross section for a given $k$. Increasing the magnitude of $V_0$ until only a half-cycle fits, we find the phase shift to be $\delta_0 = \pi$. Remarkably, the partial-wave cross section 
+\begin{equation}
+    \sigma_{l=0} = 0
+\end{equation}
+vanishes, despite the strong attraction. If the energy is low enough such that $l\neq 0$ does not contribute we get an almost perfect transmission of the wave incident on the potential. This effect is called Ramsauer-Townsend effect, and is observed experimentally for electron scattering by noble gases and was discovered in 1923 before the birth of wave mechanics.
