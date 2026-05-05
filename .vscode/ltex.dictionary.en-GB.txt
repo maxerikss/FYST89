@@ -14,3 +14,4 @@ Wigner-Eckart
 Argand
 Ramsauer-Townsend
 Eq
+Runge-Lenz
