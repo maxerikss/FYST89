@@ -292,5 +292,81 @@ while for normal scalars we have
 \end{equation}
 We call the operator $\vec{S}\cdot\vec{x}$ for a pseudoscalar.
 
+\subsubsection{Wave Functions and Parity}
+We consider a spinless particle with the wave function
+\begin{equation}
+    \psi(\vec{x}') = \bk{\vec{x}'}{\alpha}.
+\end{equation}
+For a space inverted state, that is a state with the ket $\pi\k{\alpha}$, has the wave function
+\begin{equation}
+    \bkop{\vec{x}'}{\pi}{\alpha} = \bk{-\vec{x}'}{\alpha} = \psi(-\vec{x}').
+\end{equation}
+If we take $\k{\alpha}$ to be an eigenket of parity, we have
+\begin{equation}
+    \pi\k{\alpha} = \pm\k{\alpha}.
+\end{equation}
+The wave function is then
+\begin{equation}
+    \bkop{\vec{x}'}{\pi}{\alpha} = \pm \bk{\vec{x}'}{\alpha}.
+\end{equation}
+This combined with the earlier wave function gives, depending on the parity of $\k{\alpha}$,
+\begin{equation}
+    \psi(-\vec{x}') = \pm \psi(\vec{x}') 
+        \begin{cases}
+            + & \text{even parity}\\
+            - & \text{odd parity}.
+        \end{cases}
+\end{equation}
 
+Note that not all wave functions that are of interest for physical systems follow a parity law like the one above. For example, since the momentum operator anticommutes with the parity operator, the momentum eigenket is not a parity eigenket. We can see that the plane wave function does not obey the parity relation above.
 
+Eigenkets of the orbital angular momentum however, are expected to be parity eigenkets since $\comm{\pi}{\vec{L}} = 0$. We investigate this by considering the wave function under space inversion
+\begin{equation}
+    \bk{\vec{x}'}{\alpha; l, m} = R_\alpha(r) Y_l^m(\theta, \phi).
+\end{equation}
+The parity transformation $\vec{x}' \to -\vec{x}'$ is accomplished for spherical coordinates by
+\begin{alphaAlign}
+    r &\to r\\
+    \theta &\to \pi - \theta \quad (\cos\theta \to -\cos\theta)\\
+    \phi &\to \phi + \pi \quad (e^{im\phi} \to (-1)^m e^{im\phi}).
+\end{alphaAlign}
+Using this and the definition of the spherical harmonics we can show that
+\begin{equation}
+    Y_l^m = (-1)^l Y_l^m.
+\end{equation}
+Therefore, we get the transformation under parity to be
+\begin{equation}
+    \pi \k{\alpha; l, m} = (-1)^l \k{\alpha; l, m}.
+\end{equation}
+
+We will now consider the parity properties of the energy eigenkets. A very important theorem reads:
+\paragraph{Theorem} Suppose
+\begin{equation}
+    \comm{H}{\pi} = 0
+\end{equation}
+and $\k{n}$ is a nondegenerate eigenket of $H$ with eigenvalue $E_n$:
+\begin{equation}
+    H\k{n} = E_n \k{n};
+\end{equation}
+then $\k{n}$ is also a parity eigenket.
+\paragraph{Proof} First consider the state
+\begin{equation}
+    \k{\alpha} = \frac{1}{2}(1\pm \pi)\k{n}.
+\end{equation}
+Then we show
+\begin{equation}
+    \pi\k{\alpha} = \frac{1}{2}(\pi \pm \pi^2)\k{n} = \frac{1}{2}(\pi \pm 1)\k{n} = \pm \k{\alpha},
+\end{equation}
+and thus $\alpha$ is a parity eigenket. Since $H$ and $\pi$ commute it is easy to also show that $\k{\alpha}$ is also an energy eigenket with eigenvalue $E_n$. Thus, $\k{n}$ and $\k{\alpha}$ must be the same up to a multiplicative constant, and $\k{n}$ must therefore be a parity eigenket with eigenvalue $\pm 1$. Note also that despite the $\pm$, $\k{\alpha}$ defines just one state. \qed
+
+We now look at the harmonic oscillator as an example. The ground state $\k{0}$, has a Gaussian wave function, which is even under $\vec{x}' \to -\vec{x}'$, and thus $\k{0}$ has even parity. The first excited state
+\begin{equation}
+    \k{1} = a^\dagger\k{0},
+\end{equation}
+must have odd parity since $a^\dagger$ is linear in $x$ and $p$, both of which are odd. Continuing this line of reasoning we can show that the $n$th state of the harmonic operator $\k{n}$ has the parity $(-1)^n$. Important to note here is that this result relies on the assumption of non-degeneracy. 
+
+Another example is the momentum eigenket. Since momentum anticommutes with parity, the momentum eigenket is not a parity eigenket, even though the free particle Hamiltonian is invariant under parity. The reason being that we have a degeneracy with $\k{\vec{p}'}$ and $\k{-\vec{p}'}$ having the same energy. Interestingly we can construct eigenkets
+\begin{equation}
+    \frac{1}{\sqrt{2}}(\k{\vec{p}}' \pm \k{-\vec{p}'})
+\end{equation}
+which are parity eigenkets. This is in wave functions, equivalent to saying that the plane wave function $e^{i\vec{p}'\cdot\vec{x}'/\hbar}$ does not have definite parity, while the wave functions $\cos(\vec{p}'\cdot\vec{x}'/\hbar)$ and $\sin(\vec{p}'\cdot\vec{x}'/\hbar)$ do.
