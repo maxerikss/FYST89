@@ -30,6 +30,35 @@ when
 \end{equation}
 Thus, if we lack an explicit $q_i$ dependence in $H$, ($H$ has a symmetry under $q_i \to q_i + \delta q_i$) we have a conserved quantity.
 
+\subsubsection{Symmetry in Quantum Mechanics}
+In quantum mechanics, we have made the association between an operation, like translation or rotation, to a unitary operator, like $\mathscr{S}$. Regardless if the physical system has a symmetry corresponding to the operator $\mathscr{S}$, we tend to call this operator for a symmetry operator. Furthermore, we have seen that if the symmetry operation is infinitesimal we can write
+\begin{equation}
+    \mathscr{S} = 1 - \frac{i \epsilon}{\hbar} G,
+\end{equation}
+where $G$ is the Hermitian generator of the symmetry operator. 
+
+Consider that $H$ is invariant under $\mathscr{S}$. From this, it follows that
+\begin{equation}
+    \mathscr{S}^\dagger H \mathscr{S} = H,
+\end{equation}
+or equivalently
+\begin{equation}
+    \comm{G}{H} = 0.
+\end{equation}
+From Heisenberg's equation of motion ($i\hbar \partial_t A = \comm{A}{H}$),  we obtain
+\begin{equation}
+    \frac{d G}{dt} = 0,
+\end{equation}
+and thus, $G$ is a constant of the motion. E.g. if the Hamiltonian is translationally invariant, the momentum (that generates the translation), is a constant of the motion. 
+
+Consider the system in an eigenket of $G$, when $G$ commutes with $H$, at time $t_0$. For a later time $t>t_0$, we have the ket
+\begin{equation}
+    \k{g',t_0;t} = U(t,t_0) \k{g'},
+\end{equation}
+which is also an eigenket of $G$ the same eigenvalue $g'$. Thus, when a ket is an eigenket to $G$ with eigenvalue $g'$ it will stay as such. Proving this is just realizing that since $\comm{G}{H} = 0$, then $\comm{G}{U} = 0$.
+
+
+
 
 
 
