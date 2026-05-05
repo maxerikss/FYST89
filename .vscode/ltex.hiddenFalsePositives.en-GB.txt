@@ -1,0 +1,2 @@
+{"rule":"SENTENCE_WHITESPACE","sentence":"^\\QSolving for the T matrix.\\E$"}
+{"rule":"USE_TO_VERB","sentence":"^\\QFor the low-energy limit, we use to obtain \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Dummy\\+|Dummy's\\+)[0-9]+\\Q.\\E$"}

@@ -5,3 +5,12 @@ ket
 Clebsch-Gordan
 Unitarity
 unitarity
+eigenstate
+Lippmann-Schwinger
+eigenstates
+Hermitian
+Yukawa
+Wigner-Eckart
+Argand
+Ramsauer-Townsend
+Eq

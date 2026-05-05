@@ -110,7 +110,7 @@ The cross section $d\sigma$ is defined as the transition rate divided by the flu
 \end{equation}
 We now have to relate the matrix elements $T_{ni}$ to the scattering potential $V(\vec{r})$.
 
-\subsubsection{Solving for the $T$ matrix}
+\subsubsection{\texorpdfstring{Solving for the $T$ matrix}{Solving for the T matrix}}
 Recalling the definition of the $T$ matrix we have
 \begin{equation}
     \bkop{n}{U_I(t,-\infty)}{i} = \delta_{ni} + \frac{1}{\hbar} T_{ni} \frac{e^{i\omega_{ni}t + \epsilon t}}{-\omega_{ni}+ i\epsilon}
@@ -165,7 +165,7 @@ In this case we can define $T$ using a different set of states $\k{\psi^{(-)}}$ 
 \end{equation}
 
 \subsection{The Scattering Amplitude}
-We make the substitution $\hbar \epsilon \to \epsilon$ in the Lippmann-Schwinger equation. We continue considering elastic scattering and we use $E$ for the initial (and final) energy. We write
+We make the substitution $\hbar \epsilon \to \epsilon$ in the Lippmann-Schwinger equation. We continue considering elastic scattering, and we use $E$ for the initial (and final) energy. Likewise, we write
 \begin{equation}
     \k{\psi^{(\pm)}} = \k{i} + \frac{1}{E-H_0 \pm i\epsilon} V\k{\psi^{(\pm)}}
 \end{equation}
@@ -210,7 +210,7 @@ We recognize that $G_\pm$ is the Green function for the Helmholtz equation
 \begin{equation}
     (\nabla^2 + k^2)G_\pm(\vec{x},\vec{x}') = \delta^{(3)}(\vec{x}-\vec{x}'),
 \end{equation}
-and for $\vec{x}\neq \vec{x}'$ the eigenvalue euqation is solved by $G_\pm$
+and for $\vec{x}\neq \vec{x}'$ the eigenvalue equation is solved by $G_\pm$
 \begin{equation}
     H_0 G_\pm = E G_\pm.
 \end{equation}
@@ -218,7 +218,7 @@ Inserting this into the equation for the wave function we find
 \begin{equation}
     \bk{\vec{x}}{\psi^{(\pm)}} = \bk{\vec{x}}{i} - \frac{2m}{\hbar^2} \int d^3 x' \frac{e^{\pm ik\abs{\vec{x}-\vec{x}'}}}{4\pi\abs{\vec{x}-\vec{x}'}} \bkop{\vec{x}'}{V}{\psi^{(\pm)}}.
 \end{equation}
-Note thtat this consists of two terms. The first terms is the incoming wave, while the second is the effect of scattering. Thus, without any scattering, the scattered wave is the same as the incident wave. We can show that the positive solution $\psi^{(+)}$ corresponds to a plane wave plus and outgoing spherical wave, while the negative solution $\psi^{(-)}$ corresponds to a plane wave plus and incoming spherical wave. Which we see as scatterinf forwards or backwards in time. Usually we are interested in the positive solution in physics.
+Note that this consist of two terms. The first term is the incoming wave, while the second is the effect of scattering. Thus, without any scattering, the scattered wave is the same as the incident wave. We can show that the positive solution $\psi^{(+)}$ corresponds to a plane wave plus and outgoing spherical wave, while the negative solution $\psi^{(-)}$ corresponds to a plane wave plus and incoming spherical wave. Which we see as scattering forwards or backwards in time. Usually we are interested in the positive solution in physics.
 
 Consider a local potential $V$, that is, a potential only a function of the position operator $\vec{x}$, and diagonal in the position representation. We can write such a local potential as
 \begin{equation}
@@ -251,7 +251,7 @@ With this we write
 \begin{equation}
     e^{\pm i k \abs{\vec{x-\vec{x}'}}} \approx e^{\pm i k r} e^{\mp i \vec{k}' \cdot \vec{x}'},
 \end{equation}
-and for large $r$ it is also valid to replave $1/\abs{\vec{x} - \vec{x}'}$ by $1/r$.
+and for large $r$ it is also valid to replace $1/\abs{\vec{x} - \vec{x}'}$ by $1/r$.
 
 Choosing the initial state as an eigenstate to the free particle Hamiltonian $H_0$, such that $\k{i} = \k{\vec{k}}$, we can write
 \begin{alphaAlign}
@@ -263,7 +263,7 @@ Here we see clearly that the scattered wave includes both the incident plane wav
     f(\vec{k}',\vec{k}) &= \frac{1}{4\pi} \frac{2m}{\hbar^2} L^3 \int d^3 x' \frac{e^{-i \vec{k}'\cdot\vec{x}'}}{L^{3/2}} V(\vec{x}') \bk{\vec{x}'}{\psi^{(+)}}\\
     &=- \frac{m L^3}{2\pi\hbar^2} \bkop{\vec{k}'}{V}{\psi^{(+)}}.
 \end{alphaAlign}
-Similarly, we can can show for $\k{\psi^{-}}$ that
+Similarly, we can show for $\k{\psi^{-}}$ that
 \begin{equation}
     \bk{\vec{x}}{\psi^{(-)}} = \frac{1}{L^{3/2}} \ab [ e^{i\vec{k}\cdot \vec{x}} + \frac{e^{-ikr}}{r} f(\vec{k}', \vec{k})]
 \end{equation}
@@ -277,7 +277,7 @@ We call $f(\vec{k}', \vec{k})$ the scattering amplitude, and we remark that the 
 \end{equation}
 
 \subsubsection{Wave Packet Description}
-This description is not valid for a particle being scattered by a scattering center if we model the particle as a wave packet approaching a scattering center. This is hard, but we notice that if the diemsnions of the wave packet is much larger than the size of the scatterer, i.e. the range of $V$, the plane wave approach is valid.
+This description is not valid for a particle being scattered by a scattering centre if we model the particle as a wave packet approaching a scattering centre. This is hard, but we notice that if the dimensions of the wave packet is much larger than the size of the scatterer, i.e. the range of $V$, the plane wave approach is valid.
 
 \subsubsection{The Optical Theorem}
 A useful and fundamental relationship in quantum mechanics is the optics theorem, which relates the imaginary part of the forward scattering amplitude $f(\vec{k},\vec{k})$ ($\theta = 0$), to the total cross section $\sigma_\text{tot} = \int d\Omega (d\sigma / d\Omega)$, and it reads
@@ -301,7 +301,7 @@ We want to take the imaginary part of both sides of this expression. The first t
 \begin{equation}
     \int_{-\infty}^{\infty} dx \frac{f(x)}{x-x_0} = \mathscr{P} \int_{-\infty}^{\infty} dx \frac{f(x)}{x-x_0} + \int_c dz \frac{f(z)}{z-z_0},
 \end{equation}
-where $c$ denotes the semicircle contour, and the Cauchy principle vlaue is defined as
+where $c$ denotes the semicircle contour, and the Cauchy principle value is defined as
 \begin{equation}
     \mathscr{P} \int_{-\infty}^{\infty} dx \frac{f(x)}{x-x_0} = \lim_{\delta \to 0} \ab\{ \int_{-\infty}^{x_0 - \delta} dx \frac{f(x)}{x-x_0}  + \int_{x_0 + \delta}^{\infty}dx \frac{f(x)}{x-x_0}\}.
 \end{equation}
