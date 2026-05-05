@@ -15,3 +15,5 @@ Argand
 Ramsauer-Townsend
 Eq
 Runge-Lenz
+anticommute
+pseudovectors

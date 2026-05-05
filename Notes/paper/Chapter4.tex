@@ -201,7 +201,96 @@ Note here that we found the eigenvalues of the hydrogen atom without solving the
 
 The SO(4) algebra used here can also, as can be seen from the above calculations be thought of as SU(2)$\times$SU(2), as $\vec{I}$ and $\vec{K}$ independently follow the SU(2) group algebra.
 
+\subsection{Discrete Symmetries, Parity, or Space Inversion}
+Until now, we have considered symmetry operators that are continuous, that is they can be obtained by applying infinitesimal operations successively. We will now consider three types of discrete symmetry operations: Parity, lattice translation, and time reversal.
 
+Consider parity (space inversion). The parity operation, when applied to a coordinate system changes it from a right-handed system to a left-handed system. We will however, consider the parity operator applied to the state kets. Take a general state ket $\k{\alpha}$ and apply the parity operator $\pi$ to obtain a space inverted state
+\begin{equation}
+    \k{\alpha} \to \pi\k{\alpha}.
+\end{equation}
+We require from the parity operator that the expectation value of $\vec{x}$ must have the opposite sign when taken with a space-inverted state:
+\begin{equation}
+    \bkop{\alpha}{\pi^\dagger \vec{x} \pi}{\alpha} = - \bkop{\alpha}{\vec{x}}{\alpha},
+\end{equation}
+which is to say that we have
+\begin{equation}
+    \pi^\dagger \vec{x} \pi = - \vec{x},
+\end{equation}
+or
+\begin{equation}
+    \vec{x}\pi = -\pi \vec{x}.
+\end{equation}
+We know that $\pi$ is unitary, and we can see that $\pi$ and $\vec{x}$ must anticommute.
+
+Noting that for an eigenket to the position operator, we have
+\begin{equation}
+    \vec{x}\pi \k{\vec{x}'} = - \pi \vec{x}\k{\vec{x}'} = (-\vec{x}')\pi \k{\vec{x}'}.
+\end{equation}
+Thus,  $\pi\k{\vec{x}'}$ is still an eigenket of $\vec{x}$, but with the eigenvalue $-\vec{x}'$, up to a global phase factor, which we generally take to be 1, that is $e^{i\delta} = 1$ for $\delta$ real. With this we see that
+\begin{equation}
+    \pi^2\k{\vec{x}'} = \k{\vec{x}'},
+\end{equation}
+and thus $\pi^2 = 1$, and $\pi$ is therefore Hermitian:
+\begin{equation}
+    \pi^{-1} = \pi^\dagger = \pi,
+\end{equation}
+with eigenvalue either $+1$ or $-1$.
+
+Consider now the momentum operator $\vec{p}$ as the generator of translation. A translation followed by parity, is equivalent to parity followed by a translation in the reverse direction. Thus,
+\begin{equation}
+    \pi \mathscr{J}(d\vec{x}') = \mathscr{J}(-d\vec{x}') \pi,
+\end{equation}
+or equivalently
+\begin{equation}
+    \pi \ab(1 - \frac{i \vec{p}\cdot d\vec{x}'}{\hbar})\pi^\dagger = 1 + \frac{i\vec{p}\cdot d \vec{x}'}{\hbar}.
+\end{equation}
+From the above we conclude
+\begin{equation}
+    \acomm{\pi}{\vec{p}} = 0
+\end{equation}
+and
+\begin{equation}
+    \pi^\dagger\vec{p}\pi = -\vec{p}.
+\end{equation}
+
+Now take the angular momentum operator $\vec{J}$ as a generator of rotation. For $3\times 3$ orthogonal matrices, we have 
+\begin{equation}
+    R^{(\text{parity})} R^{(\text{rotation})} =  R^{(\text{rotation})} R^{(\text{parity})},
+\end{equation}
+for the explicit parity matrix
+\begin{equation}
+    R^{(\text{parity})} = 
+    \begin{pmatrix}
+        -1  & 0     & 0\\
+        0   & -1    & 0\\
+        0   & 0     & -1
+    \end{pmatrix}.
+\end{equation}
+Thus, parity and rotation operations commute. We then postulate the corresponding relation for operators
+\begin{equation}
+    \pi \mathscr{D}(R) = \mathscr{D}(R)\pi.
+\end{equation}
+We can now see that 
+\begin{equation}
+    \comm{\pi}{\vec{J}} = 0
+\end{equation}
+and
+\begin{equation}
+    \pi^\dagger \vec{J} \pi = \vec{J}.
+\end{equation}
+This holds for $\vec{L}$ and $\vec{S}$ individually as well.
+
+Under rotations, $\vec{x}$ and $\vec{J}$ transform as vectors, or spherical tensors of rank 1. However, $\vec{x}$ and $\vec{p}$ are both odd under parity while $\vec{L}$ is even under parity. Odd parity vectors are called polar vectors, while even parity vectors are called axial vectors, or pseudovectors.
+
+Suppose we have an operation on the form $\vec{S}\cdot \vec{x}$, that is a dot product between a polar and axial vector. Under rotation, they behave as a normal scalar (like $\vec{S}\cdot\vec{L}$ or $\vec{x}\cdot\vec{p}$), under parity however, they behave like
+\begin{equation}
+    \pi^\dagger \vec{S}\cdot\vec{x} = - \vec{S}\cdot \vec{x},
+\end{equation} 
+while for normal scalars we have
+\begin{equation}
+    \pi^\dagger \vec{L}\cdot\vec{S}\pi = \vec{L}\cdot\vec{S}.
+\end{equation}
+We call the operator $\vec{S}\cdot\vec{x}$ for a pseudoscalar.
 
 
 
