@@ -57,8 +57,33 @@ Consider the system in an eigenket of $G$, when $G$ commutes with $H$, at time $
 \end{equation}
 which is also an eigenket of $G$ the same eigenvalue $g'$. Thus, when a ket is an eigenket to $G$ with eigenvalue $g'$ it will stay as such. Proving this is just realizing that since $\comm{G}{H} = 0$, then $\comm{G}{U} = 0$.
 
+\subsubsection{Degeneracies}
+Suppose that for a symmetry operator $\mathscr{S}$ we have
+\begin{equation}
+    \comm{H}{\mathscr{S}} = 0,
+\end{equation}
+and $\k{n}$ is an energy eigenket with eigenvalue $E_n$. Evidently, $\mathscr{S}\k{n}$ is also an energy eigenket with the same energy. If $\k{n}$ and $\mathscr{S}\k{n}$ represent different states we say that the states are degenerate.  Often, the symmetry operator is a function of a continuous parameter, say $\lambda$, and thus all states of the form $\mathscr{S}(\lambda)\k{n}$, are degenerate.
 
+Consider that the symmetry operator in question is rotation, that is we have $\mathscr{D}(R)$. We also suppose that the Hamiltonian is rotationally invariant
+\begin{equation}
+    \comm{\mathscr{D}(R)}{H} = 0.
+\end{equation}
+This implies the commutation relations
+\begin{alphaAlign}
+    \comm{\vec{J}}{H} &= 0\\
+    \comm{\vec{J}^2}{H} &= 0,
+\end{alphaAlign}
+and we can have simultaneous eigenkets of $H$, $\vec{J}^2$, and $J_z$, denoted by $\k{n; j, m}$. All states on the form
+\begin{equation}
+    \mathscr{R} \k{n; j, m}
+\end{equation}
+are degenerate and share the same energy. During rotation, different $m$ values are mixed, such that generally, $\mathscr{D}(R)\k{n; j, m}$ is a linear combination of $2j +1$ independent states. We can write this as
+\begin{equation}
+    \mathscr{D}(R)\k{n; j, m} = \sum_{m'} \k{n; j, m'} \mathscr{D}^{(j)}_{m'm}(R).
+\end{equation}
+This degeneracy is equal to the number of $m$-values, that is $2j+1$. It is also possible to reach this conclusion by applying $J_\pm$ to the ket.
 
+As an example of this consider an atomic electron subject to the potential $V = V(r) + V_{LS}(r) \vec{L} \cdot \vec{S}$. Since this potential is rotationally invariant, we expect a $(2j+1)$-fold degeneracy. If we applied an external magnetic field, this symmetry would break, and we would get distinct energy levels. 
 
 
 
