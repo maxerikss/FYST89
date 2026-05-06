@@ -21,3 +21,4 @@ anticommutes
 Laporte
 Nonconservation
 pseudoscalars
+antiunitary

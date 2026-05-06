@@ -540,3 +540,57 @@ If we suppose that $\psi(\vec{x}, t)$ is a solution, then it is easy to see that
 \end{equation}
 We conjecture that time reversal and complex conjugation are related. 
 
+\subsubsection{Digression on Symmetry Operations}
+Consider a symmetry operation
+\begin{equation}
+    \k{\alpha} \to \k{\tilde{\alpha}} \mand \k{\beta}\to\k{\tilde{\beta}}.
+\end{equation}
+It is reasonable to think that the inner product, $\bk{\beta}{\alpha} = \bk{\tilde{\beta}}{\tilde{\alpha}}$, is conserved. For symmetry operations where the corresponding operator is unitary, that is, for rotations, translations, parity, this is true.
+
+We not that when considering time reversal, this requirement is too strong, and we instead make a weaker statement
+\begin{equation}
+    \abs{\bk{\tilde{\beta}}{\tilde{\alpha}}} = \abs{\bk{\beta}{\alpha}}.
+\end{equation}
+This statement can also be satisfied if 
+\begin{equation}
+    \bk{\tilde{\beta}}{\tilde{\alpha}} = \bk{\beta}{\alpha}^* = \bk{\alpha}{\beta}.
+\end{equation}
+
+\paragraph{Definition} The transformation 
+\begin{equation}
+    \k{\alpha} \to \k{\tilde{\alpha}} = \vartheta\k{\alpha} \mand \k{\beta} \to \k{\tilde{\beta}} = \vartheta\k{\beta}
+\end{equation}
+is said to be antiunitary if
+\begin{equation}
+    \bk{\tilde{\beta}}{\tilde{\alpha}} = \bk{\beta}{\alpha}^*,
+\end{equation}
+and
+\begin{equation}
+    \vartheta(c_1\k{\alpha} + c_2 \k{\beta}) = c_1^*\vartheta\k{\alpha} + c_2^* \vartheta\k{\beta}.
+\end{equation}
+The operator $\vartheta$ is an antiunitary operator. 
+
+We claim that an antiunitary operator can be written on the form
+\begin{equation}
+    \vartheta = UK,
+\end{equation}
+where $U$ is a unitary operator and $K$ is the complex conjugate operator, defined such that it complex conjugates any coefficient multiplying a ket. We have for $K$
+\begin{equation}
+    K c \k{\alpha} = c^* K\k{\alpha}
+\end{equation}
+Suppose we expand $\k{\alpha}$ in terms of $\{\k{a'}\}$: $\k{\alpha} = \sum_{a'} \k{a'}\bk{a'}{\alpha}$, then
+\begin{alphaAlign}
+    K\k{\alpha} &= K\sum_{a'} \bk{a'}{\alpha} \k{a'}\\
+    &= \sum_{a'} \bk{a}{\alpha}^* K\k{a'}\\
+    &=\sum_{a'} \bk{a}{\alpha}^* \k{a'}.
+\end{alphaAlign}
+We note that $K$ does not change the base ket, as its explicit representation is
+\begin{equation}
+    \k{a'} = (0, 0, \cdots, 0, 1, 0, \cdots, 0, 0)^T.
+\end{equation}
+However, if we take spin as an example. Suppose the $S_y$ eigenkets in the basis of $S_z$, then
+\begin{equation}
+    K\ab(\frac{1}{\sqrt{2}} \k{\uparrow} \pm \frac{i}{\sqrt{2}} \k{\downarrow}) = \frac{1}{\sqrt{2}}\k{\uparrow } \mp \frac{i}{\sqrt{2}}\k{\downarrow}.
+\end{equation}
+If the $S_y$ eigenkets were themselves the basis, then $K$ would not affect them. That is, the effect of $K$ depend on the basis.
+
