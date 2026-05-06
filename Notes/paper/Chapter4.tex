@@ -394,6 +394,23 @@ At a time $t = T/2 = \pi\hbar/(E_A-E_S)$ we find the system in $\k{S}$. At the t
 \end{equation}
 This can be seen as tunnelling between the left and right states. If we increase the middle barrier to infinity, the states $\k{S}$ and $\k{A}$ become degenerate. Thus, $\k{L}$ and $\k{R}$ are now energy eigenkets, but they are not parity eigenkets. The infinitely high barrier makes tunnelling impossible. Interestingly, since we have degeneracy, the ground state can be asymmetrical, even though the Hamiltonian is symmetrical under parity.
 
+\subsubsection{Parity-Selection Rule}
+We consider the parity eigenstates $\k{\alpha}$ and $\k{\beta}$, such that
+\begin{alphaAlign}
+    \pi\k{\alpha} &= \epsilon_\alpha \k{\alpha}\\
+    \pi\k{\beta} &= \epsilon_\beta \k{\beta},
+\end{alphaAlign}
+where $\epsilon_\alpha, \epsilon_\beta$ are the parity eigenvalues $\pm 1$. Unless $\epsilon_\alpha = -\epsilon_\beta$, we have
+\begin{equation}
+    \bkop{\beta}{\vec{x}}{\alpha} = 0.
+\end{equation}
+Thus, the odd-parity operator $\vec{x}$ connects parity states of different parity. There is a similar argument due to Wigner
+\begin{equation}
+    \int d\tau \psi_\beta^* \vec{x}\psi_\alpha = 0,
+\end{equation}
+if $\psi_b$ and $\psi_a$ have the same parity. This rule was known before the birth of quantum mechanics, from analysis of spectral lines, and called Laporte's rule. Wigner then showed that this rule was due to parity selection. From Wigner's rule it follows that if the Hamiltonian is invariant under parity, then nondegenerate energy eigenstates cannot possess a permanent electric dipole moment, since they are also parity eigenstates.
+
+Generally, operators that have odd parity, have nonvanishing matrix elements only between states of opposite parity, that is, they connect opposite parity states. For operators with even parity, the reverse is true, they connect same parity states.
 
 
 
