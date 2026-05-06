@@ -370,3 +370,32 @@ Another example is the momentum eigenket. Since momentum anticommutes with parit
     \frac{1}{\sqrt{2}}(\k{\vec{p}}' \pm \k{-\vec{p}'})
 \end{equation}
 which are parity eigenkets. This is in wave functions, equivalent to saying that the plane wave function $e^{i\vec{p}'\cdot\vec{x}'/\hbar}$ does not have definite parity, while the wave functions $\cos(\vec{p}'\cdot\vec{x}'/\hbar)$ and $\sin(\vec{p}'\cdot\vec{x}'/\hbar)$ do.
+
+\subsubsection{Symmetrical Double-Well Potential}
+We consider a symmetrical double-well potential. The Hamiltonian is invariant under parity and the two lowest solutions we call the symmetrical state $\k{S}$ and the antisymmetrical state $\k{A}$. These two states are simultaneous eigenkets of both $H$ and $\pi$, and we have
+\begin{equation}
+    E_A > E_S.
+\end{equation}
+
+We form the states
+\begin{alphaAlign}
+    \k{R} &= \frac{1}{\sqrt{2}} ( \k{S} + \k{A})\\
+    \k{L} &= \frac{1}{\sqrt{2}} ( \k{S} - \k{A}).
+\end{alphaAlign}
+These two states are neither parity states, being interchanged under parity, or energy eigenstates. They are examples of nonstationary states. Consider that at $t=0$ we have the state $\k{R}$, then at a later time we have
+\begin{alphaAlign}
+    \k{R, t_0=0; t} &= U(t,0) \k{R, 0; 0}\\
+    &=\frac{1}{\sqrt{2}} ( e^{-i E_S t/\hbar}\k{S} + e^{i E_A t/\hbar}\k{A})\\
+    &= \frac{e^{- i E_S t/\hbar}}{\sqrt{2}} (\k{S} + e^{i(E_A - E_S) t /\hbar}\k{A}.
+\end{alphaAlign}
+At a time $t = T/2 = \pi\hbar/(E_A-E_S)$ we find the system in $\k{S}$. At the time $t=T$, we have $\k{R}$ again, and we continue oscillating between these two states with angular frequency
+\begin{equation}
+    \omega = \frac{E_A-E_S}{\hbar}.
+\end{equation}
+This can be seen as tunnelling between the left and right states. If we increase the middle barrier to infinity, the states $\k{S}$ and $\k{A}$ become degenerate. Thus, $\k{L}$ and $\k{R}$ are now energy eigenkets, but they are not parity eigenkets. The infinitely high barrier makes tunnelling impossible. Interestingly, since we have degeneracy, the ground state can be asymmetrical, even though the Hamiltonian is symmetrical under parity.
+
+
+
+
+
+
