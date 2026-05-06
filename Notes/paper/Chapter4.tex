@@ -507,3 +507,36 @@ We can now interpret the meaning of $\k{\theta}$ and its energy eigenvalue. We k
 This is independent of the shape of the potential as long as the tight-binding approximation holds. Note that we have a cutoff for the wave vector at $\abs{k} = \pi/a$. The dispersion curve defined by $E(k)$ forms a continuous energy band between $E_0 - 2\Delta$ and $E_0 + 2\Delta$ called the Brillouin zone. Note also that we have lifted the infinite-fold degeneracy completely.
 
 When considering multiple electrons, following the Pauli principle, as opposed to just a single electron as considered here, we can find many of the features of metals, semiconductors and insulators.
+
+\subsection{The Time-Reversal Discrete Symmetry}
+We will now explore the discrete symmetry operator that is time reversal. The term time reversal is a misnomer, what we mean are more accurately described by the term reversal of motion. This is the term used by Wigner when he formulated time reversal.
+
+We start from a classical point of view. Imagine the trajectory of a particle in a certain force field. Suppose now that at $t=0$ the particle stop and reverse its motion, that is $\vec{p}|_{t=0} \to -\vec{p}|_[t=0]$. The particle thus moves backwards along the same path. We can say, more formally, that if $\vec{x}(t)$ is a solution to
+\begin{equation}
+    m\ddot{\vec{x}}(t) = -\nabla V(\vec{x}),
+\end{equation}
+then $\vec{x}(-t)$ is also a valid solution. Note that this is not true for non-conserving forces, or dissipative forces.
+
+Can we then tell if we are either following a path A in reverse, or a path B in forward motion? If the field in question is a magnetic field it might be possible. Imagine an electron spiralling in a magnetic field, it might be possible, from a macroscopic view, to get a sense of rotation by noting the labelling of the magnetic poles. However, if we also reverse the current that generates $\vec{B}$, then the situations would be symmetrical. That is, we can say formally that Maxwells equations, e.g.
+\begin{equation}
+    \nabla \cdot \vec{E}, \quad \nabla\times\vec{B} - \frac{1}{c} \partial_t \vec{E}=\frac{4\pi\vec{j}}{c}, \quad \nabla\times\vec{E} = -\frac{1}{c}\partial_t\vec{B},
+\end{equation}
+and the Lorentz force 
+\begin{equation}
+    \vec{F} = e \ab[\vec{E} + \frac{1}{c}(\vec{v}\times\vec{B})]
+\end{equation}
+are invariant under the transformation $t\to -t$, if we also have 
+\begin{equation}
+    \vec{E}\to \vec{E}, \quad \vec{B}\to -\vec{B}, \quad \rho \to \rho, \quad \vec{j} \to -\vec{j}, \quad\text{and}\quad \vec{v}\to -\vec{v}.
+\end{equation}
+
+Moving away from the classical point of view, and instead looking to wave mechanics, the Schrödinger equation reads
+\begin{equation}
+    i\hbar \partial_t \psi = \ab(-\frac{\hbar^2}{2m}\nabla^2 + V)\psi.
+\end{equation}
+If we suppose that $\psi(\vec{x}, t)$ is a solution, then it is easy to see that $\psi(\vec{x}, -t)$ is not a solution due to the first time derivative. We do see however, that $\psi^*(\vec{x}, -t)$ is a solution. For an energy eigenstate
+\begin{equation}
+    \psi(\vec{x}, t) = u_n(\vec{x}) e^{-iE_n t/\hbar}, \quad\text{and}\quad \psi^*(\vec{x}, -t) = u_n^*(\vec{x}) e^{-iE_n t/\hbar}.
+\end{equation}
+We conjecture that time reversal and complex conjugation are related. 
+
