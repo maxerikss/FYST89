@@ -701,7 +701,7 @@ so the eigenvalue of the time reversed momentum ket is $-\vec{p}'$. Similarly, f
 we get that
 \begin{alphaAlign}
     \Theta \vec{x}\Theta^{-1} &= \vec{x}\\
-    \Theta \k{\vec{x}'} = \k{\vec{x}'}.
+    \Theta \k{\vec{x}'} &= \k{\vec{x}'}.
 \end{alphaAlign}
 Not that the above is true up to a global phase.
 
@@ -727,3 +727,51 @@ the angular-momentum operator must be odd under time reversal, that is
 \end{equation}
 Note that for a spinless system $\vec{J} = \vec{x} \times \vec{p}$.
 
+\subsubsection{Wave Function}
+Consider a spinless single-particle system at time $t=0$ in the state $\k{\alpha}$. In the expansion in the position representation, the wave function $\bk{\vec{x}'}{\alpha}$ appears as the coefficient
+\begin{equation}
+    \alpha = \int d^3 x' \k{\vec{x}'}\bk{\vec{x}'}{\alpha}.
+\end{equation}
+Applying the time reversal operator
+\begin{alphaAlign}
+    \Theta \k{\alpha} &= \Theta \int d^3 x' \bk{\vec{x}'}{\alpha} \k{\vec{x}'}\\
+    &= \int d^3 x' \bk{\vec{x}'}{\alpha}^* \Theta \k{\vec{x}'}\\
+    &= \int d^3 x' \bk{\vec{x}'}{\alpha}^* \k{\vec{x}'},
+\end{alphaAlign}
+where we choose the phase such that $\Theta \k{\vec{x}'} = \k{\vec{x}'}$. We have recovered the earlier rule
+\begin{equation}
+    \psi(\vec{x}') \overset{\Theta}{\to} \psi^*(\vec{x}').
+\end{equation}
+
+The angular part of the wave function is given by the spherical harmonic $Y_l^m$, and with our normal phase convention we find
+\begin{equation}
+    Y_l^m(\theta,\phi) \overset{\Theta}{\to} Y_l^{m*} (\theta, \phi) = (-1)^m Y_l^{-m}(\theta, \phi).
+\end{equation}
+Thus, we find that
+\begin{equation}
+    \Theta \k{l,m} = (-1)^m \k{l,-m}.
+\end{equation}
+Time reversal, reverses the direction of the probability flux for a wave function since $m$ catches a sign flip.
+
+\paragraph{Theorem} Suppose the Hamiltonian is invariant under time reversal and the energy eigenket $\k{n}$ is nondegenerate; then the corresponding energy eigenfunction is real (or, more generally, a real function times a phase factor independent of $\vec{x}$).
+
+\paragraph{Proof} We note that
+\begin{equation}
+    H\Theta \k{n} = \Theta H \k{n} = E_n \Theta \k{n},
+\end{equation}
+and thus $\k{n}$ and the time reversed state $\Theta\k{n}$ has the same energy. The nondegeneracy assumption helps us make the conclusion that $\k{n}$ and $\Theta\k{n}$ is the same state. The wave functions must therefore be identical:
+\begin{equation}
+    \bk{\vec{x}'}{n} = \bk{\vec{x}'}{n}^*.
+\end{equation}
+That is, the wave function must be real, up to a phases factor independent of $\vec{x}$. \qed
+
+Thus, a nondegenerate bound state always have a real wave function. For the case of the hydrogen atom, we have a degeneracy, and thus the wave function is complex, namely $Y_l^m$ is complex. A plane wave is also degenerate, and is therefore also complex.
+
+For a spinless system, the position wave function for a time reversed state is simply obtained by complex conjugation. If we instead consider the momentum wave function, we see a different result. Consider
+\begin{alphaAlign}
+    \Theta \k{\alpha} &= \Theta \int d^3 p' \bk{\vec{p}'}{\alpha} \k{\vec{p}'}\\
+    &= \int d^3 p'\bk{\vec{p}'}{\alpha}^* \Theta\k{\vec{p}'}\\
+    &= \int d^3 p'\bk{\vec{p}'}{\alpha}^* \k{-\vec{p}'}\\
+    &= \int d^3 p'\bk{-\vec{p}'}{\alpha}^* \k{\vec{p}'},
+\end{alphaAlign}
+where we do a substitution in the last step. Thus, for time reversal of the momentum wave function, we identify $\varphi^*(-\vec{p}')$ as the momentum wave function for the time reversed state.
