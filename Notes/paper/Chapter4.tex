@@ -594,3 +594,136 @@ However, if we take spin as an example. Suppose the $S_y$ eigenkets in the basis
 \end{equation}
 If the $S_y$ eigenkets were themselves the basis, then $K$ would not affect them. That is, the effect of $K$ depend on the basis.
 
+\subsubsection{Time-Reversal Operator}
+We will denote the time-reversal operator by $\Theta$, and then consider the time reversed state $\Theta\k{\alpha}$. A more appropriate name for $\Theta\k{\alpha}$ would be the motion-reversed state. E.g. we expect $\Theta\k{\vec{p}'} = \k{-\vec{p}'}$.
+
+Consider a system in state $\k{\alpha}$ at time $t_0=0$. At a later time $t=\delta t$, the system is in state
+\begin{equation}
+    \k{\alpha, 0; \delta t} = \ab(1 - \frac{iH}{\hbar}\delta t) \k{\alpha}
+\end{equation}
+where $H$ is the Hamiltonian that characterizes the time evolution. Now suppose that before the time evolution, at $t_0=0$ we apply the time-reversal operator, then, at time $t=\delta t$ we have
+\begin{equation}
+    \ab(1 - \frac{i H}{\hbar} \delta t) \Theta \k{\alpha}.
+\end{equation}
+If motion obeys symmetry under time reversal, then this ket is the same as
+\begin{equation}
+    \Theta \k{\alpha, 0; -\delta t},
+\end{equation}
+that is, we consider a state ket at an earlier time $t = -\delta t$, and then reverse $\vec{p}$ and $\vec{J}$. Formally we write
+\begin{equation}
+    \ab(1 - \frac{iH}{\hbar} \delta t)\Theta \k{\alpha} = \Theta \ab(1 - \frac{iH}{\hbar} (-\delta t))\k{\alpha},
+\end{equation}
+and if true for any ket, then
+\begin{equation}
+    -iH\Theta \k{\cdot} = \Theta i H \k{\cdot}.
+\end{equation}
+
+Note that $\Theta$ cannot be unitary as that would make the cancellation of $i$ in the above equation valid, yielding
+\begin{equation}
+    -H\Theta = \Theta H.
+\end{equation}
+If we now consider an energy eigenket $\k{n}$ with eigenvalue $E_n$, then the time-reversed state $\Theta \k{n}$ would have the energy eigenvalue
+\begin{equation}
+    H\Theta\k{n} = -\Theta H\k{n} = (-E_n)\Theta\k{n}.
+\end{equation}
+Thus, it implies that the time reversed energy state has energy eigenvalues $-E_n$, which is nonsensical even in the most elementary cases. Consider a free particle with Hamiltonian $H = \vec{p}^2/2m$. Possible eigenvalues would be positive semidefinite, not negative. If the time-reversal operator was unitary we would need $\vec{p}^2 \to -\vec{p}^2$ and $\vec{p}\to -\vec{p}$ which is not physical.
+
+That is, for time reversal to be a useful symmetry we need the operator $\Theta$ to be antiunitary, and thus
+\begin{equation}
+    \Theta i H \k{\cdot} = - i \Theta H \k{\cdot},
+\end{equation}
+allowing us to now cancel the $i$, giving
+\begin{equation}
+    \Theta H = H\Theta.
+\end{equation}
+The above equation is the fundamental property of the Hamiltonian under time reversal.
+
+Since $\Theta$ is an antilinear operator, some part of the braket notation might be confusing, as it was made for linear operators. We only ever mean $\Theta$ to act on kets to the right, and never on bras to the left. That is,
+\begin{equation}
+    \bkop{\beta}{\Theta}{\alpha} = \b{\beta} \cdot (\Theta\k{\alpha}) \neq (\b{\beta}\Theta) \cdot \k{\alpha}.
+\end{equation}
+
+We recall the action of $\Theta$ on kets
+\begin{equation}
+    \k{\tilde{\alpha}} = \Theta \k{\alpha} \mand \k{\tilde\beta} = \Theta\k{\beta}.
+\end{equation}
+However, it is often also convenient to discuss if operators are odd or even under time reversal. For a linear operator $X$, let us define
+\begin{equation}
+    \k{\gamma} = X^\dagger\k{\beta},
+\end{equation}
+then by dual correspondence
+\begin{equation}
+    \b{\gamma} = \b{\beta}X.
+\end{equation}
+Now,
+\begin{alphaAlign}
+    \bkop{\beta}{X}{\alpha} &= \bk{\gamma}{\alpha}\\
+    &= \bk{\tilde{\alpha}}{\tilde{\gamma}}\\
+    &= \bkop{\tilde{\alpha}}{\Theta X^\dagger}{\beta}\\
+    &= \bkop{\tilde{\alpha}}{\Theta X^\dagger \Theta^{-1}\Theta}{\beta}\\
+    &= \bkop{\tilde{\alpha}}{\Theta X^\dagger\Theta^{-1}}{\tilde\beta},
+\end{alphaAlign}
+which is an important result. Notably, for Hermitian observables $A$ we get
+\begin{equation}
+    \bkop{\beta}{A}{\alpha} = \bkop{\tilde\alpha}{\Theta A \Theta^{-1}}{\tilde\beta}.
+\end{equation}
+We call observables even ($+$) or odd ($-$) depending on the sign in
+\begin{equation}
+    \Theta A \Theta^{-1} = \pm A.
+\end{equation}
+It is possible to obtain a phase restriction on the matrix elements of $A$ taken with respect to time reversed states:
+\begin{equation}
+    \bkop{\beta}{A}{\alpha} = \pm \bkop{\tilde\beta}{A}{\tilde\alpha}^*.
+\end{equation}
+If we have $\k{\beta} = \k{\alpha}$, then we have an expectation value, nd
+\begin{equation}
+    \bkop{\alpha}{A}{\alpha} = \pm \bkop{\tilde\alpha}{A}{\tilde\alpha}.
+\end{equation}
+
+We will use $\vec{p}$ as an example, looking at its expectation value. The expectation value of $\vec{p}$ should reasonably be of opposite sign under time reversal, that is
+\begin{equation}
+    \bkop{\alpha}{\vec{p}}{\alpha} = -\bkop{\tilde\alpha}{\vec{p}}{\tilde{\alpha}}
+\end{equation}
+so $\vec{p}$ is an odd operator
+\begin{equation}
+    \Theta \vec{p} \Theta^{-1} = -\vec{p}.
+\end{equation}
+This gives
+\begin{alphaAlign}
+    \vec{p}\Theta \k{\vec{p}'} &= - \Theta \vec{p}\Theta^{-1}\Theta \k{\vec{p}'}\\
+    &= -\Theta \vec{p} \k{\vec{p}'}\\
+    &= (-\vec{p}')\Theta\k{\vec{p}'},
+\end{alphaAlign}
+so the eigenvalue of the time reversed momentum ket is $-\vec{p}'$. Similarly, from the reasonable requirement
+\begin{equation}
+    \bkop{\alpha}{\vec{x}}{\alpha} = \bkop{\tilde\alpha}{\vec{x}}{\tilde\alpha},
+\end{equation}
+we get that
+\begin{alphaAlign}
+    \Theta \vec{x}\Theta^{-1} &= \vec{x}\\
+    \Theta \k{\vec{x}'} = \k{\vec{x}'}.
+\end{alphaAlign}
+Not that the above is true up to a global phase.
+
+Consider the canonical commutation relation applied to a general ket
+\begin{equation}
+    \comm{x_i}{p_j} \k{\cdot} = i\hbar\delta_{ij}\k{\cdot},
+\end{equation}
+and then apply $\Theta$ from the left
+\begin{equation}
+    \Theta \comm{x_i}{p_j} \Theta^{-1}\Theta \k{\cdot} = \Theta i\hbar\delta_{ij}\k{\cdot}
+\end{equation}
+which gives
+\begin{equation}
+    \comm{x_i}{-p_j}\Theta \k{\cdot} = -i\hbar\delta_{ij}\Theta \k{\cdot}.
+\end{equation}
+Note that the antiunitarity of the time-reversal operator conserves the commutation relation $\comm{x_i}{p_j} = i\hbar\delta_{ij}$, and thus the canonical commutation relation is invariant under time reversal. We could have used this to require $\Theta$ to be antiunitary instead. Similarly, to preserve 
+\begin{equation}
+    \comm{J_i}{J_j} = i\hbar \epsilon_{ijk}J_k,
+\end{equation}
+the angular-momentum operator must be odd under time reversal, that is
+\begin{equation}
+    \Theta \vec{J}\Theta^{-1} = -\vec{J}.
+\end{equation}
+Note that for a spinless system $\vec{J} = \vec{x} \times \vec{p}$.
+
