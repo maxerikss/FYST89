@@ -19,3 +19,5 @@ anticommute
 pseudovectors
 anticommutes
 Laporte
+Nonconservation
+pseudoscalars
