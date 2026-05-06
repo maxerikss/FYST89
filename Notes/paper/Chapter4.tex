@@ -419,4 +419,91 @@ The first experiment that discovered this had a decay rate depending on $\expval
 
 Since the parity is not conserved in the weak interaction, what was once thought of as pure nuclear and atomic states, are parity mixtures.
 
+\subsection{Lattice Translation as a Discrete Symmetry}
+We will consider the discrete symmetry operation that is lattice transformation, with important applications in solid state physics. Consider a periodic potential in one dimension such that $V(x\pm a) = V(x)$. This can be thought of as a chain of positive ions, and an electron moving through this lattice. The Hamiltonian is not generally invariant under a translation $\tau(l)$ with $l$ arbitrary, where $\tau(l)$ has the properties
+\begin{alphaAlign}
+    \tau^\dagger(l) x \tau(l) = x + l\\
+    \tau(l)\k{x'} = \k{x'+l}.
+\end{alphaAlign}
+However, when $l=a$, with $a$ the lattice spacing we have
+\begin{equation}
+    \tau^\dagger(a) V(x)\tau(a) = V(x+a) = V(x).
+\end{equation}
+The kinetic energy part of the Hamiltonian is, of course, invariant under any type of displacement, so we have
+\begin{equation}
+    \tau^\dagger(a)H\tau(a) = H,
+\end{equation}
+and also $\tau(a)$ is unitary, with
+\begin{equation}
+    \comm{H}{\tau(a)} = 0,
+\end{equation}
+such that both $H$ and $\tau(a)$ can be diagonalized simultaneously. Note that $\tau(a)$ is not Hermitian, and we expect the eigenvalue to be complex modulus 1.
 
+We will start by considering a periodic potential with the potential between two sites going to infinity. A state completely localized in a lattice site is a good ground state candidate. Assuming that the particle is localized at the $n$th site, denoted by $\k{n}$ with the ground state energy $E_0$ such that $H\k{n} = E_0\k{n} $. The wave function $\bk{x'}{n}$ is finite only on the $n$th site, but we note that similar states exists on any state $n$ where $n\in(-\infty,\infty)$.
+
+The ket $\k{n}$ is obviously not an eigenket to $\tau(a)$ since
+\begin{equation}
+    \tau(a)\k{n} = \k{n+1}.
+\end{equation}
+We see once again that even though $\tau(a)$ and $H$ commute we do not have a simultaneous energy eigenket, consistent with us having an infinite-fold degeneracy. We want to find some ket that is a simultaneous eigenket of both $H$ and $\tau(a)$.
+
+A similar procedure as performed earlier with the states $\k{L}$ and $\k{R}$ will be done here, where even though they were not parity eigenkets, some linear combination were. The linear combination
+\begin{equation}
+    \k{\theta} = \sum_{n=-\infty}^{\infty} e^{in\theta}\k{n},
+\end{equation}
+with $\theta\in(-\pi,\pi]$ is formed. This is obviously an eigenket of $H$, since $\k{n}$ is, and applying the lattice translation operator
+\begin{equation}
+    \tau(a)\k{\theta} = \sum_{-\infty}^{\infty} e^{in\theta}\k{n+1} = \sum_{n=-\infty}^{\infty} e^{i(n-1)\theta} \k{n} = e^{-i\theta}\k{\theta}.
+\end{equation}
+Thus, $\k{\theta}$ is a simultaneous eigenket of $H$ and $\tau(a)$.
+
+Returning to the lattice potential with finite height, albeit still tall enough. It is still possible to construct the kets $\k{n}$ with property $\tau(a)\k{n} = \k{n+1}$, but the wave function $\bk{x'}{n}$, can now leak into neighbouring sites due to quantum tunnelling effects. Assuming that the potential is high enough, we can ignore the leakage into sites other than the nearest neighbours. That is, we get the Hamiltonian
+\begin{equation}
+    \bkop{n}{H}{n} = E_0 \quad \text{and} \quad \bkop{n'}{H}{n} = -\Delta \quad \text{only if}\quad n' = \pm 1.
+\end{equation}
+This is called the tight-binding approximation in solid state physics. We thus get
+\begin{equation}
+    H\k{n} = E_0\k{n} - \Delta \k{n+1} - \Delta \k{n-1}.
+\end{equation}
+Note that $\k{n}$ is no longer an energy eigenket.
+
+We form that same linear combination as before
+\begin{equation}
+    \k{\theta} = \sum_{n=-\infty}^{\infty} e^{in\theta}\k{n}.
+\end{equation}
+This is still an eigenket to $\tau(a)$ since the steps performed earlier still holds. However, since $\k{n}$ is not an energy eigenket any more, it is not obvious if $\k{\theta}$ is. We test this by applying $H$
+\begin{alphaAlign}
+    H\k{\theta} &= H \sum_n e^{in\theta} \k{n}\\
+    &= \sum_n e^{in\theta} H\k{n}\\
+    &= \sum_n e^{in\theta} (E_0\k{n} - \Delta\k{n+1} - \Delta\k{n-1})\\
+    &= E_0\sum_n e^{in\theta}\k{n} -\Delta \sum_n e^{in\theta} \ab(e^{-i\theta} + e^{i\theta})\k{n}\\
+    &= (E_0 -2\Delta\cos\theta)\sum_n e^{in\theta} \k{n}\\
+    &= (E_0 - 2\Delta\cos\theta) \k{\theta}.
+\end{alphaAlign}
+What is interesting here is that the eigenvalue depends on the parameter $\theta$ which it did not do for the infinite potential case. As $\Delta$ becomes non-zero the degeneracy is removed, and we get a continuous spectrum of energies in the range $E\in[E_0 - 2\Delta, E_0 + 2\Delta]$.
+
+Now, we want to apply some physical significance to the parameter $\theta$, and we will therefore study the wave function $\bk{x'}{\theta}$. The wave function for the lattice translated state $\tau(a)\k{\theta}$ is 
+\begin{equation}
+    \bkop{x'}{\tau(a)}{\theta} = \bk{x'-a}{\theta}
+\end{equation}
+or
+\begin{equation}
+    \bkop{x'}{\tau(a)}{\theta} = e^{-i\theta}\bk{x'}{\theta},
+\end{equation}
+depending on if we let the operator act on the bra or ket. Thus,
+\begin{equation}
+    \bk{x'-a}{\theta} = \bk{x'}{\theta} e^{-i\theta},
+\end{equation}
+which can be solved by setting
+\begin{equation}
+    \bk{x'}{\theta} = e^{ikx'}u_k(x'),
+\end{equation}
+with $\theta=ka$. The function $u_k(x')$ is a periodic function with period $a$. With this we arrive at Bloch's theorem: The wave function of $\k{\theta}$, which is an eigenket of $\tau(a)$, can be written as a plane wave $e^{ikx'}$ times a periodic function with period $a$. This theorem holds even if the tight-binding approximation breaks down.
+
+We can now interpret the meaning of $\k{\theta}$ and its energy eigenvalue. We know that the wave function is a plane wave characterized by the wave vector $k$ and modulated by the periodic function $u_k(x')$. As $\theta = ka$ varies between $-\pi$ and $\pi$ we have that the wave vector $k$ varies between $-\pi/a$ and $\pi/a$. The energy eigenvalue has a $k$ dependence
+\begin{equation}
+    E(k) = E_0 - 2\Delta \cos ka.
+\end{equation}
+This is independent of the shape of the potential as long as the tight-binding approximation holds. Note that we have a cutoff for the wave vector at $\abs{k} = \pi/a$. The dispersion curve defined by $E(k)$ forms a continuous energy band between $E_0 - 2\Delta$ and $E_0 + 2\Delta$ called the Brillouin zone. Note also that we have lifted the infinite-fold degeneracy completely.
+
+When considering multiple electrons, following the Pauli principle, as opposed to just a single electron as considered here, we can find many of the features of metals, semiconductors and insulators.
