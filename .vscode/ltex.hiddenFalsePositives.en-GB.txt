@@ -5,3 +5,7 @@
 {"rule":"COMMA_COMPOUND_SENTENCE","sentence":"^\\QWe find that and thus we must have that \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Dummy\\+|Dummy's\\+)[0-9]+\\Q.\\E$"}
 {"rule":"COMMA_COMPOUND_SENTENCE_2","sentence":"^\\QThis gives so the eigenvalue of the time reversed momentum ket is \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Dummy\\+|Dummy's\\+)[0-9]+\\Q.\\E$"}
 {"rule":"SENTENCE_WHITESPACE","sentence":"^\\QTime Reversal for a Spin 1/2 System.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\QInteractions with Electric and Magnetic Fields; Kramers Degeneracy.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\QAnother consequence of time-reversal invariance is Kramers degeneracy.\\E$"}
+{"rule":"PCT_SINGULAR_NOUN_PLURAL_VERB_AGREEMENT","sentence":"^\\QFor example, this means that for a spin \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Dummy\\+|Dummy's\\+)[0-9]+\\Q state, the system spin up, and spin down\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\QThus, we can remove Kramers degeneracy by applying a magnetic field.\\E$"}

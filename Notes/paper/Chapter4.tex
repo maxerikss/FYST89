@@ -862,3 +862,33 @@ and for the expectation value we find
 \begin{equation}
     \bkop{\alpha,j,m}{T_0^{(k)}}{\alpha,j,m} = \pm (-1)^k \bkop{\alpha, j, m}{T_0^{(k)}}{\alpha, j, m}.
 \end{equation}
+
+\subsubsection{Interactions with Electric and Magnetic Fields; Kramers Degeneracy}
+Consider charged particles in an external electric or magnetic field. Start by assuming only a static electric field, interacting with an electric charge, then the interaction Hamiltonian is
+\begin{equation}
+    V(\vec{x}) = e \varphi(\vec{x}),
+\end{equation}
+where $\varphi(\vec{x})$ is the electrostatic potential, and it is a real function of the operator $\vec{x}$, which is even under time reversal. Thus,
+\begin{equation}
+    \comm{\Theta}{H} = 0.
+\end{equation}
+This does not lead to a conservation law as it did in the case of parity, since the time reversal operator does not commute with the time evolution operator. Therefore, we do not have a conservation of a time-reversal quantum number. We do however, as discussed previously, get a phase restriction.
+
+Another consequence of time-reversal invariance is Kramers degeneracy. Let suppose that $H$ and $\Theta$ commute and that we have the energy eigenket $\k{n}$ and its time reversed state $\Theta\k{n}$. We know that these must have the same energy since the Hamiltonian commutes with the time-reversal operator. If they represent the same state, then they can at most differ by a phase,
+\begin{equation}
+    \Theta \k{n} = e^{i\delta} \k{n}
+\end{equation}
+and
+\begin{alphaAlign}
+    \Theta^2 \k{n} &= \Theta e^{i\delta} \k{n}\\
+    &= e^{-i \delta} \Theta \k{n}\\
+    &= e^{-i \delta} e^{i \delta}\k{n}\\
+    &= \k{n}.
+\end{alphaAlign}
+This is not possible for half-integer $j$ systems, and we are therefore forced to conclude that $\k{n}$ and $\Theta\k{n}$, which have the same energy, must represent different sates; we have a degeneracy. This has the consequence, that for a system with an odd number of electrons, $j$ half-integer, in an external field $\vec{E}$, there must be at least a two-fold degeneracy for each energy level. This means that depending on if the system has an odd or even number of electrons it behaves very differently.
+
+Considering an external magnetic field instead. The interaction Hamiltonian might contain terms on the form
+\begin{equation}
+    \vec{S\cdot \vec{B}} \mand \vec{p}\cdot\vec{A} + \vec{A}\cdot \vec{p}.
+\end{equation}
+Since $\vec{S}$ and $\vec{p}$ are odd under time-reversal, the Hamiltonian does not commute with the time-reversal operator. For example, this means that for a spin $\frac{1}{2}$ state, the systems spin up, and spin down states will have different energy when subject to a magnetic field. Thus, we can remove Kramers degeneracy by applying a magnetic field. Note that since we treat $\vec{B}$ as external, we do not apply the time-reversal on this.
