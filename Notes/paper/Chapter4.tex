@@ -775,3 +775,90 @@ For a spinless system, the position wave function for a time reversed state is s
     &= \int d^3 p'\bk{-\vec{p}'}{\alpha}^* \k{\vec{p}'},
 \end{alphaAlign}
 where we do a substitution in the last step. Thus, for time reversal of the momentum wave function, we identify $\varphi^*(-\vec{p}')$ as the momentum wave function for the time reversed state.
+
+\subsubsection{\texorpdfstring{Time Reversal for a Spin $\dfrac{1}{2}$ System}{Time Reversal for a Spin 1/2 System}}
+Consider now a particle with spin $\frac{1}{2}$. We can write the eigenket of $\vec{S}\cdot\hv{n}$ with eigenvalue $\hbar/2$ as
+\begin{equation}
+    \k{\hv{n}; \uparrow} = e^{-i S_z \alpha/\hbar} e^{-i S_y \beta /\hbar} \k{\uparrow},
+\end{equation}
+where $\hv{n}$ is characterized by the polar angle $\beta$ and azimuthal angle $\alpha$. Since angular momentum operators are odd under time reversal we have
+\begin{equation}
+    \Theta \k{\hv{n}; \uparrow} = e^{-iS_z \alpha /\hbar} e^{-i S_y \beta/\hbar} \Theta \k{\uparrow} = \eta \k{\hv{n}; \downarrow}.
+\end{equation}
+It is also easy to see that 
+\begin{equation}
+    \k{\hv{n}; \downarrow} = e^{-i S_z \alpha / \hbar} e^{- i S_y (\beta + \pi) / \hbar} \k{\uparrow}.
+\end{equation}
+Decomposing the time reversal operator $\Theta = UK$, and comparing the previous equations we see that
+\begin{equation}
+    \Theta = \eta e^{-i S_y \pi /\hbar} K = i \eta \ab(\frac{2 S_y}{\hbar}) K,
+\end{equation}
+where $\eta$ is an arbitrary phase.
+
+Note that 
+\begin{alphaAlign}
+    e^{-i S_y \pi /\hbar}\k{\uparrow} &= -i \frac{2}{\hbar} S_y \k{\uparrow}\\
+    &= -i \frac{2}{\hbar} \ab(\frac{i\hbar}{2}) \k{\downarrow}\\
+    &= \k{\downarrow}
+\end{alphaAlign}
+and
+\begin{alphaAlign}
+    e^{-i S_y \pi /\hbar} \k{\downarrow} &= -i \frac{2}{\hbar} S_y\k{\downarrow}\\
+    &= - i \frac{2}{\hbar} \ab(\frac{-i\hbar}{2})\k{\uparrow}\\
+    &= -\k{\uparrow}.
+\end{alphaAlign}
+For a general spin $\frac{1}{2}$ ket, we have
+\begin{equation}
+    \Theta (c_\uparrow \k{\uparrow} + c_\downarrow \k{\downarrow}) = \eta c_\uparrow^* \k{\downarrow} - \eta c_\downarrow^*\k{\uparrow}.
+\end{equation}
+Applying $\Theta$ again,
+\begin{alphaAlign}
+    \Theta^2 (c_\uparrow \k{\uparrow} + c_\downarrow \k{\downarrow}) &= \Theta( \eta c_\uparrow^* \k{\downarrow} - \eta c_\downarrow^*\k{\uparrow})\\
+    &= \eta^* c_\uparrow \Theta\k{\downarrow} - \eta^* c_\downarrow \k{\uparrow}\\
+    &= -\abs{\eta}^2 c_\uparrow \k{\uparrow} - \abs{\eta}^2 c_\downarrow\k{\downarrow}\\
+    &= - (c_\uparrow \k{\uparrow} + c_\downarrow \k{\downarrow}),
+\end{alphaAlign}
+that is 
+\begin{equation}
+    \Theta^2 = -1,
+\end{equation}
+for any spin orientation. This is true regardless of what phase we choose. This is very interesting, especially when comparing for a spinless state, where
+\begin{equation}
+    \Theta^2 = 1.
+\end{equation}
+
+Generally, we can prove that
+\begin{equation}
+    \Theta^2 \k{j \text{ half-integer}} = - \k{j \text{ half-integer}}
+\end{equation}
+and
+\begin{equation}
+    \Theta^2\k{j \text{ integer}} = \k{j \text{ integer}},
+\end{equation}
+and thus the eigenvalue of $\Theta^2$ is given by $(-1)^{2j}$. We can generalize the time reversal operator for any $j$, as
+\begin{equation}
+    \Theta = \eta e^{-i J_y \pi /\hbar} K.
+\end{equation}
+For a general ket $\alpha$ expanded in the basis of $\k{j,m}$ we have
+\begin{alphaAlign}
+    \Theta(\Theta \sum_m \k{j,m}\bk{j,m}{\alpha}) &= \Theta (\eta \sum_m e^{-i J_y \pi / \hbar} \k{j,m} \bk{j,m}{\alpha}^* )\\
+    &=\abs{eta}^2 \sum_m e^{-2 i J_y \pi /\hbar} \k{j,m}\bk{j,m}{\alpha}\\
+    &=(-1)^{2j} \sum_m \k{j,m}\bk{j,m}{\alpha}\\
+    &= (-1)^{2j} \k{\alpha}.
+\end{alphaAlign}
+For $\k{j\text{ integer}}$, can be any even number electron state, while $\k{j\text{ half-integer}}$ can be any odd number electron state. Note that they need not be eigenstates of $\vec{J}^2$.
+
+For the phase convention, a common convention is to take $\eta = i$, such that
+\begin{equation}
+    \Theta \k{j, m} = i^{2m} \k{j, -m},
+\end{equation}
+regardless of whether $j$ refers to spin, or orbital angular momentum, and if it is integer or half-integer. This is not the only convention, however.
+
+For a spherical tensor $T_q^{(k)}$, we call it even or odd depending on 
+\begin{equation}
+    \Theta T_{q=0}^{(k)} \Theta^{-1} = \pm T_{q=0}^{(k)}
+\end{equation}
+and for the expectation value we find
+\begin{equation}
+    \bkop{\alpha,j,m}{T_0^{(k)}}{\alpha,j,m} = \pm (-1)^k \bkop{\alpha, j, m}{T_0^{(k)}}{\alpha, j, m}.
+\end{equation}
